@@ -32,7 +32,7 @@ Node *mergeLinkedList(Node *left, Node *right) {
   Node *head = nullptr;
   Node *prev =
       (left->val < right->val) ? new Node(left->val) : new Node(right->val);
-  std::cout<<left->val<<std::endl;help
+  std::cout<<left->val<<std::endl;
   while (left != nullptr && right != nullptr) {
     if (left->val < right->val) {
       Node *temp = new Node(left->val);
