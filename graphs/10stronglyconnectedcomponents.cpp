@@ -2,7 +2,6 @@
 #include <iostream>
 #include <string>
 #include <vector>
-
 using namespace std;
 // first document what you think and then start coding
 // we are given edges and number of vertices we can construct adj list
@@ -27,7 +26,6 @@ using namespace std;
 //          if satisfied push that v into the answer
 //
 //  all set !!
-
 bool checkpath(vector<vector<int>> &adj, int u, int v, vector<bool> &visited) {
     // if (visited[s]==true) {
     //     return true;
@@ -45,7 +43,6 @@ bool checkpath(vector<vector<int>> &adj, int u, int v, vector<bool> &visited) {
     visited[u] = true;
     for (auto &x : adj[u]) {
         // only move to x if it is not visited
-
         if (!visited[x]) {
             if (checkpath(adj, x, v, visited)) {
                 return true;
@@ -54,14 +51,11 @@ bool checkpath(vector<vector<int>> &adj, int u, int v, vector<bool> &visited) {
     }
     return false;
 }
-
 bool isPath(vector<vector<int>> &adj, int u, int v) {
     vector<bool> visited(adj.size() + 1, false);
     return checkpath(adj, u, v, visited);
 }
-
 void findStronglyConnectedComponents(vector<vector<int>> &edges, int v) {}
-
 int main() {
     // you are given edges and vertices
     int v = 5;

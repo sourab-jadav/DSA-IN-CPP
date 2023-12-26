@@ -1,13 +1,18 @@
-#include <bits/stdc++.h>
-using namespace std;
-int getNumOfInversions(vector<int> A)
+#include <algorithm>
+#include <iostream>
+#include <vector>
+
+// using namespace std;
+// we are using 
+
+int getNumOfInversions(std::vector<int> A)
 {
     int N = A.size();
     if (N <= 1)
     {
         return 0;
     }
-    vector<pair<int, int>> sortList;
+    std::vector<std::pair<int, int>> sortList;
     int result = 0;
     // Heapsort, O(N*log(N))
     for (int i = 0; i < N; i++)
@@ -16,11 +21,12 @@ int getNumOfInversions(vector<int> A)
         push_heap(sortList.begin(), sortList.end());
     }
     // Create a sorted list of indexes
-    vector<int> x;
+    std::vector<int> x;
     while (!sortList.empty())
     {
         // O(log(N))
-        pair<int, int> v = sortList.front();
+        std::pair<int, int> v = sortList.front();
+        std::cout<<v.first<<" "<<v.second<<std::endl;
         pop_heap(sortList.begin(), sortList.end());
         sortList.pop_back();
         // Find the current minimum's index
@@ -36,8 +42,8 @@ int getNumOfInversions(vector<int> A)
 
 int main()
 {
-    vector<int> A = {1, 20, 6, 4, 5};
+    std::vector<int> A = {1, 20, 6, 4, 5};
     int result = getNumOfInversions(A);
-    cout << "Number of inversions are " << result << endl;
+    std::cout << "Number of inversions are " << result << std::endl;
     return 0;
 }
