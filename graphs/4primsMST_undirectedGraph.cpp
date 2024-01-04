@@ -3,6 +3,7 @@
 #include <iostream>
 #include <vector>
 #include <climits>
+
 // MST is a tree which connects all the vertices of the graph with minimum weight
 // here the approach is to find the minimum edge from the visited vertices and then add it to the result
 // and then mark it as visited and then update the key of the vertices which are reachable from the current vertex
@@ -13,6 +14,7 @@
 //this problem can be solved in O(ElogV) using priority queue and adjacency list  (adjacency matrix will take O(V^2) time) 
 //here the parent array is used to store the parent of the vertex which is used to find the path of the MST 
 // copilot solution 
+
 // here we are traversing till n-2 because to find the MST we need to connect all the vertices with minimum weight 
 // and we need n-1 edges to connect n vertices 
 // void addEdge(std::vector<int> vec[], int u, int v) {
