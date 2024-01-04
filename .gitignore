@@ -1,0 +1,6 @@
+# Except for .cpp files
+# Ignore all files and directories
+
+# Except for .cpp files
+*.out
+
