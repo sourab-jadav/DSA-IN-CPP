@@ -3,4 +3,4 @@
 
 # Except for .cpp files
 *.out
-
+.vscode
