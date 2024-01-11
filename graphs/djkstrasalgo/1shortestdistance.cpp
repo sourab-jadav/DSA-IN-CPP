@@ -18,7 +18,6 @@ int main() {
   // node to other nodes is just [0] Constraints: 1 <= V <= 104 0 <= adj[i][j]
   // <= 1000 1 <= adj[i].size() <= V - 1 It is guaranteed that the graph is
   // connected and all edges are of length 1.
-
   std::vector<std::vector<int>> vec = {{0, 1, 1}, {1, 2, 3}, {2, 0, 6}};
   int n = vec.size();
   std::vector<int> dist(n, INT_MAX);
@@ -29,10 +28,10 @@ int main() {
     adj[vec[i][0]].push_back({vec[i][1], vec[i][2]});
     adj[vec[i][1]].push_back({vec[i][0], vec[i][2]});
   }
-  for (int i = 0; i < n;
-       i++) { // this is the workaround i made for this problem you can also use
-              // priority queue and solve this problem
-    for (int i = 0; i < n; i++) {
+  for (int i = 0; i < n - 1; i++) { // it is possible that there is no path from
+    // source to destination so we have to run the
+    // loop n-1 times
+    for (int i = 0; i < n; i++) { // traversing through all the edges
       for (auto it : adj[i]) {
         if (dist[i] != INT_MAX && dist[i] + it.second < dist[it.first]) {
           dist[it.first] = dist[i] + it.second;
