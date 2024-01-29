@@ -32,6 +32,7 @@ void bfsWhenSourceGiven(std::vector<int>vec[],int n,int s,std::vector<bool>&visi
         }
     }
 }
+
 int main() {
     std::vector<std::vector<int>>graph{
         {0,1},{1,2},{2,3},{1,3},{0,2}

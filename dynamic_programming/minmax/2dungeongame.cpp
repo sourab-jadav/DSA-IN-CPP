@@ -8,8 +8,6 @@ public:
     int getValue(vector<vector<int>>&mat,vector<vector<int>>&memo,int i=0,int j=0){
         int n=mat.size();
         int m=mat[0].size();
-
-        
         if(i==n||j==m) return 1e9;
         if(i==n-1 && j==m-1){
             return (mat[i][j]<=0)?-mat[i][j]+1:1;
