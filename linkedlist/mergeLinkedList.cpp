@@ -9,6 +9,7 @@ struct Node {
     this->next = nullptr;
   }
 };
+
 Node *createList(std::vector<int> &vec) {
   Node *head = new Node(vec.at(0));
   for (int i = 1; i < (int)vec.size(); i++) {
@@ -63,6 +64,7 @@ Node *mergeLinkedList(Node *left, Node *right) {
   }
   return head;
 }
+
 int main() {
   std::vector<int> l1 = {3, 7, 10};
   std::vector<int> l2 = {1, 2, 5, 8, 10};

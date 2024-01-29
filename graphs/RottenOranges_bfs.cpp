@@ -58,5 +58,3 @@ int main() {
     std::cout<<"minutes required: "<<minute_count<<std::endl;
     return 0;
 }
-
-

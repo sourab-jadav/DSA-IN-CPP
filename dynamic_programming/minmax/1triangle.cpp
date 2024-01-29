@@ -2,16 +2,33 @@
 #include <iostream>
 #include <vector>
 #include <climits>
+using namespace std;
 // we recurse the shit
-// int findShortest(std::vector<std::vector<int>>&vec,int k,int j){
-//     if (k<(int)vec.size()) {
-//         int n=(int)vec[k].size();
-//         for(int i=j;i<n;i++){
-//             return std::min(vec[k][i]+findShortest(vec, k+1, j),vec[k][i]+findShortest(vec, k+1, j+1)); // need for refactoring
+int findShortest(std::vector<std::vector<int>>&vec,int k,int j){
+    if (k<(int)vec.size()) {
+        int n=(int)vec[k].size();
+        for(int i=j;i<n;i++){
+            return std::min(vec[k][i]+findShortest(vec, k+1, j),vec[k][i]+findShortest(vec, k+1, j+1)); // need for refactoring
+        }
+    }
+    return 0;
+}
+// my approach 
+// class Solution {
+// public:
+//     int solve(vector<vector<int>>&traingle,int k,int i){
+//         if (k<traingle.size()) {
+//             return traingle[k][i]+min(solve(traingle, k+1, i),solve(traingle, k+1, i+1));
 //         }
+//         return 0;
 //     }
-//     return 0;
-// }
+//     void minimumTotal(vector<vector<int>>& triangle) {
+//         int result={};
+//         result=solve(triangle,0,0);
+//         std::cout<<result<<std::endl;
+//     }
+// };
+
 // we memoize the shit
 // we memoize the shit
 // int findShortest(std::vector<std::vector<int>>&vec,int k,int j,std::vector<std::vector<int>>memo){
@@ -26,6 +43,7 @@
 //     }
 //     return 0;
 // }
+
 
 // we will tabulize the shit
 // void findShortest(std::vector<std::vector<int>>&vec){
