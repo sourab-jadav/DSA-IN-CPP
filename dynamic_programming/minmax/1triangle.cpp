@@ -65,10 +65,9 @@ int findShortest(std::vector<std::vector<int>>&vec,int k,int j){
 // }
 
 int main() {
-    // std::vector<std::vector<int>>vec{{2},{3,4},{6,5,7},{4,1,8,3}};
-    std::vector<std::vector<int>>vec{{-1},{2,3},{1,-1,-3}};
+    std::vector<std::vector<int>>vec{{2},{3,4},{6,5,7},{4,1,8,3}};
+    // std::vector<std::vector<int>>vec{{-1},{2,3},{1,-1,-3}};
     std::vector<std::vector<int>>memo(vec.size(),std::vector<int>(vec.size(),-1));
     // findShortest(vec, 0,0,memo);
-    // findShortest(vec);
-    std::cout<<memo[0][0]<<std::endl;
+    std::cout<<findShortest(vec, 0, 0)<<std::endl;
 }
