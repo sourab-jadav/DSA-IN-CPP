@@ -3,6 +3,7 @@
 #include <vector>
 #include <climits>
 using namespace std;
+
 // we recurse the shit
 int findShortest(std::vector<std::vector<int>>&vec,int k,int j){
     if (k<(int)vec.size()) {
