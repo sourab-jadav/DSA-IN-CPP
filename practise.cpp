@@ -59,9 +59,9 @@ class Solution {
 };
 int main() {
     vector<vector<char>> board{{'X', 'O', 'X', 'O', 'X', 'O'},
-        {'O', 'X', 'O', 'X', 'O', 'X'},
-        {'X', 'O', 'X', 'O', 'X', 'O'},
-        {'O', 'X', 'O', 'X', 'O', 'X'}};
+                                {'X', 'O', 'X', 'O', 'X', 'O'},
+                                {'O', 'X', 'O', 'X', 'O', 'X'},
+                                {'O', 'X', 'O', 'X', 'O', 'X'}};
     Solution s;
     s.solve(board);
 }

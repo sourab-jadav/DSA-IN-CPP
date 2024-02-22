@@ -3,6 +3,7 @@
 #include <queue>
 #include <vector>
 
+
 int main() {
     std::priority_queue<int,std::vector<int>,std::greater<int>>q;
     std::priority_queue<int>p;

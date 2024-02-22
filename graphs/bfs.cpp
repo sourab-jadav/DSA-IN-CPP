@@ -21,7 +21,7 @@ void printGraph(std::vector<int>vec[],int n){
 }
 
 
-// std::vector<int>* createGraph(){   //this is not working saying address of stack memory associated with local variable x returned
+// std::vector<int>* createGraph()   //this is not working saying address of stack memory associated with local variable x returned
 void createGraph(std::vector<int>vec[],int n){
     std::cout<<"enter -1 to stop creating edges"<<std::endl;
     while (true) {
@@ -32,6 +32,7 @@ void createGraph(std::vector<int>vec[],int n){
         }
         addEdge(vec, u, v);
     }
+
 }
 
 
