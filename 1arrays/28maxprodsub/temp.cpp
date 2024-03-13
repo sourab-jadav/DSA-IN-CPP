@@ -5,6 +5,7 @@ int maxSubarrayProduct(int arr[], int n)
     // max positive product
     // ending at the current position
     int max_ending_here = 1;
+    //
     // min negative product ending
     // at the current position
     int min_ending_here = 1;
@@ -23,8 +24,7 @@ int maxSubarrayProduct(int arr[], int n)
         /* If this element is positive, update
         max_ending_here. Update min_ending_here only if
         min_ending_here is negative */
-        if (arr[i] > 0)
-        {
+        if (arr[i] > 0) {
             max_ending_here = max_ending_here * arr[i];
             min_ending_here = min(min_ending_here * arr[i], 1);
             flag = 1;
@@ -68,7 +68,6 @@ int maxSubarrayProduct(int arr[], int n)
     }
     return max_so_far;
 }
-// Driver code
 int main()
 {
     int arr[] = {1, -2, -3, 0, 7, -8, -2};
