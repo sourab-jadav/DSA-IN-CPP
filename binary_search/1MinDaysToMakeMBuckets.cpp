@@ -53,9 +53,36 @@ int main() {
     int m = 3;
     int k = 1;
     cout << s.minDays(bloomDay, m, k) << endl;
-
     return 0;
 }
-
 // here we are using binary search to find the minimum number of days to make m bouquets with k flowers in each bouquet
 
+
+
+// the error we are facing
+//   int minDays(vector<int>& A, int m, int k) {
+//         int n = A.size(), left = 1, right = 1e9;
+//         if (m * k > n) return -1; // here is here m*k to resolve it do (long)m*(long)k
+//         while (left < right) {
+//             int mid = (left + right) / 2, flow = 0, bouq = 0;
+//             for (int j = 0; j < n; ++j) {
+//                 if (A[j] > mid) {
+//                     flow = 0;
+//                 } else if (++flow >= k) {
+//                     bouq++;
+//                     flow = 0;
+//                 }
+//             }
+//             if (bouq < m) {
+//                 left = mid + 1;
+//             } else {
+//                 right = mid;
+//             }
+//         }
+//         return left;
+//     }
+//
+//
+// //i am getting this error 
+// Line 7: Char 15: runtime error: signed integer overflow: 89945 * 32127 cannot be represented in type 'int' (solution.cpp)
+// SUMMARY: UndefinedBehaviorSanitizer: undefined-behavior prog_joined.cpp:16:15
