@@ -19,7 +19,7 @@ class Heap {
     if (r < heapsize && arr[r] > arr[l]) {
       highest = r;
     }
-    if (i != highest) {
+    if (i != highest && arr[highest]>arr[i]) {
       std::swap(arr[i], arr[highest]);
       heapify(arr, highest);
     }
@@ -44,6 +44,10 @@ int main(){
     int n=sizeof(arr)/sizeof(arr[0]);
     Heap h(n);
     h.buildheap(arr );
+    for(int i=0;i<n;i++){
+        std::cout<<arr[i]<<" ";
+    }
+    std::cout<<std::endl;
     std::cout<<h.getTop(arr)<<std::endl;
     std::cout<<h.getTop(arr)<<std::endl;
     std::cout<<h.getTop(arr)<<std::endl;

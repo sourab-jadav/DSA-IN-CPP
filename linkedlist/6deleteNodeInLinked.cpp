@@ -42,13 +42,10 @@ int main() {
         1,4,2,3
     };
     Node *head=createList(vec);
-
     Node* pointer=head->next->next;
     printlist(head);
     deletePointer(pointer);
     printlist(head);
-
-
     return 0;
 }
 
