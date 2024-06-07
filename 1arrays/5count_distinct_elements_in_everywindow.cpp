@@ -15,7 +15,7 @@ int main() {
         }
         mp[arr[i]]++;
     }
-    std::cout<<distinct_count<<" ";
+    cout<<distinct_count<<" ";
     for(int i=k;i<n;i++){
         if(--mp[arr[i-k]]==0){
             distinct_count--;
@@ -24,7 +24,7 @@ int main() {
             distinct_count++;
         }
         mp[arr[i]]++;
-        std::cout<<distinct_count<<" ";
+        cout<<distinct_count<<" ";
     }
     
 }
