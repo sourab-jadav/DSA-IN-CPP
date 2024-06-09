@@ -1,0 +1,4 @@
+what we learned so far:-
+
+1- you are given value n you have to find 7n (do <<3 and -n you get the answer)
+2- 
