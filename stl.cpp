@@ -1,12 +1,8 @@
 #include <iostream>
 using namespace std;
 
-
 int main() {
-    int i=45;
-    while (i>=0) {
-        std::cout<<"the value is "<<i<<std::endl;
-        i--;
-    }
-    return 0;
+    int x=45;
+    int y=60;
+    int z=x+y;
 }

@@ -50,7 +50,6 @@ void printlist(Node *head) {
     }
     std::cout << std::endl;
 }
-// moti ka approach with priority queue
 // typedef pair<int, Node*>pi;
 // void flattenTheList(Node* head){
 //     std::priority_queue<pi,std::vector<pi>,greater<pi>> minh;
