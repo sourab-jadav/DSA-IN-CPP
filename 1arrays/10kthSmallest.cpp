@@ -35,7 +35,7 @@ int main()
     int N = sizeof(arr) / sizeof(arr[0]), K = 3;
 
     // // Function call
-    cout << "K'th smallest element is "
+    cout << "K'th smallest element is " // 3 smallest is equal to (n-k-1) largest
          << kthSmallest(arr, 0, N - 1, K);
     return 0;
 }
