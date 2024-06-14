@@ -92,6 +92,14 @@ int main() {
     // the sort function is a comparison sort
     // example:
     int arr[] = {3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5};
+    vector<vector<int>>vec{{1,3},{2,5},{7,1}};
+    sort(vec.begin(),vec.end(),[](vector<int>&a,vector<int>&b){
+            return a[1]<b[1];
+            });
+    for (auto x : vec) {
+        std::cout<<x[0]<<" "<<x[1]<<std::endl;
+    }
+    std::cout<<std::endl;
     int n = sizeof(arr) / sizeof(arr[0]);
     // sort(arr, arr + n, greater<int>());
     sort(arr, arr + n);
@@ -101,10 +109,6 @@ int main() {
        return a > b;
        });
     vector<Person> people {{ "John", 23 }, { "Paul", 25 }, { "Ringo", 22 }, { "George", 21 }};
-
-
-
-
     return 0;
 }
 

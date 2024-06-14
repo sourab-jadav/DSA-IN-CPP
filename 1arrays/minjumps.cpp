@@ -5,12 +5,9 @@ int minJumps(vector<int> &nums, int l)
 {
     if (l >= nums.size() - 1)
         return 0;
-
     int jumps = INT_MAX;
-
     for (int i = l + 1; i <= l + nums[l]; i++)
         jumps = min(jumps, 1 + minJumps(nums, i));
-
     return jumps;
 }
 int main()
