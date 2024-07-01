@@ -37,7 +37,7 @@ public:
 };
 int main() {
     Solution s;
-    std::vector<int> v = {5,7,7,8,8,10};
+    std::vector<int> v = {5,7,7,8,8,8,8,10};
     std::vector<int> res = s.searchRange(v, 8);
     for(auto i : res) {
         std::cout << i << " ";
