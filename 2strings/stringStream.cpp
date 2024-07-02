@@ -1,5 +1,6 @@
+#include <codecvt>
 #include <iostream>
-#include <sstream>
+#include <sstream> // stringstream class needs this
 #include <vector>
 #include <string>
 using namespace std;
@@ -16,6 +17,8 @@ int main() {
     //    std::cout<<temp<<std::endl;
     // }
 
+    // string str="45";
+    // int x=stoi(str); // this converts string to int
 
 
 
