@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 struct Node {
     int value;
@@ -25,4 +26,9 @@ int main() {
         std::cout << head->value << std::endl;
         head = head->next;
     }
+    int a=45;
+    vector<int> v;
+    std::cout<<"this is first game of the file"<<std::endl;
+    int n=45;
+    std::cout<<"the value of n is "<<n<<std::endl;
 }
