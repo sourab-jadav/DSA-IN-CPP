@@ -17,17 +17,16 @@ void solve(node* root,deque<int>&dq,int sum,int curr){
     if (root==nullptr) {
         return;
     }
-    dq.push_back(root->key);
     if (curr+root->key>sum) {
-        dq.pop_back();
         return;
     }
     if (sum==curr+root->key) {
+        dq.push_back(root->key);
         for (auto it=dq.begin(); it!=dq.end(); it++) {
             std::cout<<*it<<" ";
         }
         std::cout<<std::endl;
-        return ;
+        return;
     }
     // at a particular element either we can select an element or we don't select an element
     // when we select it we pushback input the queue and we decrease the sum
@@ -36,6 +35,7 @@ void solve(node* root,deque<int>&dq,int sum,int curr){
     //
     //  so we maintain a variable called curr
 
+    dq.push_back(root->key);
     solve(root->left, dq, sum, curr+root->key);
     solve(root->right, dq, sum, curr+root->key);
 
