@@ -10,10 +10,12 @@
 //     }
 // };
 //
-
+// priority_queue is by default max heap if you use greater function it becomes min heap
 int main() {
     std::priority_queue<std::pair<int, int>,std::vector<std::pair<int, int>>,std::greater<std::pair<int, int>>>pq; // creates the priority queue
                                                                                                                    // based on first element
+                                                                                                                   // here vector is the underlying
+                                                                                                                   // container
     //creating a priority queue based on the second element
     // std::priority_queue<std::pair<int, int>,std::vector<std::pair<int, int>>,CompareSecond>>>pq;         
                                                                                                             
