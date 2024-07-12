@@ -48,11 +48,10 @@ int main() {
     head->next->next->next->next = new node(5);
     head->next->next->next->next->next = new node(6);
     head->next->next->next->next->next->next = new node(7);
-    // printList(head);
-    // int n=2;
     int n;
-    std::cout << "before :" << std::endl;
+    std::cout << "before :" << " ";
     printList(head);
+    std::cout<<std::endl;
     std::cout << "enter the n value" << std::endl;
     cin >> n;
     node *groupEnd;
