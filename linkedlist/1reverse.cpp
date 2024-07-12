@@ -9,18 +9,33 @@ struct Node {
     this->next = nullptr;
   }
 };
-Node *root;
-// reverse the linked list
-Node *reverseList(Node *head) {
-  if (head->next == nullptr) {
-    root = head;
-    return head;
-  }
-  Node *prev = reverseList(head->next);
-  prev->next = head;
-  head->next = nullptr;
-  return head;
+// Node *root;
+// // reverse the linked list
+// Node *reverseList(Node *head) { // this is okay but you can also pass the pointer as reference
+//   if (head->next == nullptr) {
+//     root = head;
+//     return head;
+//   }
+//   Node *prev = reverseList(head->next);
+//   prev->next = head;
+//   head->next = nullptr;
+//   return head;
+// }
+
+Node* reverseLinkedList(Node* root,Node** final){ // this is much better 
+    if (root->next==nullptr) {
+        *final=root;
+        return root;
+    }
+
+    Node* temp=reverseLinkedList(root->next, final);
+    // here temp is the reference to the next node
+    temp->next=root;
+    root->next=nullptr;
+    return root;
 }
+
+
 //reverse without the recurions
 Node* revereWithOutRecursion(Node* head){
     Node* prev=nullptr;
@@ -78,8 +93,14 @@ int main() {
   std::cout << "Hello, World!" << std::endl;
   std::vector<int> vec{1, 2, 3, 4, 5};
   Node *head = createList(vec);
-  Node *middle=findingMiddle(head);
-  std::cout<<"middle value is "<<middle->val<<std::endl;
+  std::cout<<"before the reverse is done"<<std::endl;
+  printlist(head);
+  reverseLinkedList(head, &head);
+  std::cout<<"after ther reverse is done"<<std::endl;
+  printlist(head);
+
+  // Node *middle=findingMiddle(head);
+  // std::cout<<"middle value is "<<middle->val<<std::endl;
 
 
   return 0;
