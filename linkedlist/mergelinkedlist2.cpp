@@ -42,13 +42,13 @@ Node *mergeLinkedList(Node *t1, Node *t2) {
     head2 = t1;
     temp = t2;
   }
-  while (head1->next != nullptr && head2->next != nullptr) {
-    while (head1->next != nullptr && head1->next->val < head2->val) {
+  while (head1->next  && head2->next ) {
+    while (head1->next  && head1->next->val < head2->val) {
       head1 = head1->next;
     }
     Node *temp1 = head1->next;
     head1->next = head2;
-    while (head2->next != nullptr && head2->next->val < temp1->val) {
+    while (head2->next  && head2->next->val < temp1->val) {
       head2 = head2->next;
     }
     Node *temp2 = head2->next;
@@ -64,7 +64,9 @@ Node *mergeLinkedList(Node *t1, Node *t2) {
 
 int main() {
   std::vector<int> list1{3, 7, 7, 7, 10};
+  // std::vector<int> list1{5,10,15};
   std::vector<int> list2{1, 2, 5, 8, 10};
+  // std::vector<int> list2{2,3,20};
   Node *head1 = createList(list1);
   Node *head2 = createList(list2);
   Node *final = mergeLinkedList(head1, head2);
