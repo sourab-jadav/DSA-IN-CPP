@@ -1,4 +1,5 @@
 #include <iostream>
+#include <ostream>
 #include <string>
 #include <unordered_set>
 #include <vector>
@@ -98,3 +99,4 @@ int main() {
 
     return 0;
 }
+
