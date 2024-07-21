@@ -1,11 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void twoRepeated(vector<int> arr, int N)
-{
+void twoRepeated(vector<int> arr, int N) {
     int m = N - 1;
-    for (int i = 0; i < N; i++)
-    {
+    for (int i = 0; i < N; i++) {
         arr[arr[i] % m - 1] += m;
         if ((arr[arr[i] % m - 1] / m) == 2)
             cout << arr[i] % m << " ";
@@ -22,4 +20,3 @@ int main()
     return 0;
 }
 
-// This code is contributed by Aditya Kumar (adityakumar129)

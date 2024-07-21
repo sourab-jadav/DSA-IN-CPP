@@ -10,7 +10,6 @@ int main() {
     int arr[]={5,67};
     int x=5;
     int n = sizeof(arr) / sizeof(arr[0]);
-
     int start = -1;
     int low = 0;
     int high = n - 1;

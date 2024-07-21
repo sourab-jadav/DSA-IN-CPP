@@ -12,7 +12,21 @@ int main() {
     if (!umap.count('D')) {
         std::cout<<"D value is not present in the map "<<std::endl;
     }
+
     return 0;
 }
-
-
+// ----------------------------------------sorting the keys in discending order----------------------------------------
+//
+// struct descComparator{
+//     bool operator()(const int &lhs,const int &rhs)const{
+//         return lhs>rhs;
+//     }
+// };
+// int main() {
+//     map<int, int,descComparator>map{{5,10},{2,12},{6,15}}; // here template orgument for the template type 
+//                                                        // parameter must be a type
+//     for (auto it : map) {
+//         std::cout<<it.first<<" "<<it.second<<std::endl;
+//     }
+//     return 0;
+// }
