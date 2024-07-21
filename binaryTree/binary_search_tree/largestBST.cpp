@@ -1,9 +1,7 @@
 #include <algorithm>
-#include <ios>
 #include <iostream>
-#include <string>
-#include <vector>
 using namespace std;
+
 // this is very very important
 // when you write a code and it is not working the problem is with how you think
 // learn and improve the skill of how you think
@@ -35,9 +33,11 @@ int findLargestBst(node *root) { //  this is wrong solution
     }
     return max(left, right);
 }
+
 // int findLargestBst( node *root) {
 //     return 0;
 // }
+
 
 
 
@@ -81,30 +81,35 @@ int findLargestBst(node *root) { //  this is wrong solution
 // let's do the preorder traversal to compare the elements and pass the current root value to the left recursive call 
 // and then the right 
 
-
+bool checkBST(node* root,node*& prev){
+    if (root) {
+        if (!checkBST(root->left,prev)) {
+            return false;
+        }
+        if (prev!=nullptr && root->key < prev->key ) {
+            return false;
+        }
+        prev=root;
+        return checkBST(root->right, prev);
+    }
+    return true;
+}
 
 
 
 int main() {
-    // node *root = new node(6);
-    // root->left = new node(6);
-    // root->right = new node(2);
-    // root->right->right = new node(3);
-    // root->right->right->right = new node(4);
-    // root->right->left = new node(1);
-    // root->left->right = new node(2);
-    // int result = findLargestBst(root);
-    // struct node* root = new node(4);
-    // root->left = new node(2);
-    // root->right = new node(5);
-    // // root->right->left = new node(7);
-    // root->left->left = new node(1);
-    // root->left->right = new node(3);
+
 struct node* root = new node(3);
     root->left = new node(2);
     root->right = new node(5);
     root->left->left = new node(1);
     root->left->right = new node(4);
-    // bool result=checkIfBinarySearchTree(root);
-    std::cout << "the result is " << result << std::endl;
+    node* prev=nullptr;
+    bool result=checkBST(root, prev);
+    if (result) {
+        std::cout<<"it is a binary tree"<<std::endl;
+    }else {
+        std::cout<<"it is not a binary tree"<<std::endl;
+    }
+
 }

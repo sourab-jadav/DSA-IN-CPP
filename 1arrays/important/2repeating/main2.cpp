@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+#include <vector>
 
 using namespace std;
 
@@ -11,8 +12,7 @@ vector<int> calculate()
         sum += x;
     }
     int act_sum = 0;
-    for (int i = 1; i <= arr.size(); i++)
-    {
+    for (int i = 1; i <= arr.size(); i++) {
         act_sum += i;
     }
     int low = 0;
@@ -44,6 +44,9 @@ vector<int> calculate()
 }
 int main()
 {
-    calculate();
+    vector<int>result=calculate();
+    for (auto x : result) {
+        std::cout<<x<<std::endl;
+    }
     return 0;
 }
