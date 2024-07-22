@@ -1,4 +1,6 @@
+#include <algorithm>
 #include <iostream>
+#include <iterator>
 #include <vector>
 using namespace std;
 // creating a linked list and getting the nth element from the end
@@ -60,21 +62,26 @@ void printlist(Node *head) {
 //     std::cout << slow->data << std::endl;
 // }
 int main() {
-    Node *head = new Node(1);
-    push(head, 2);
-    push(head, 3);
-    push(head, 4);
-    push(head, 5);
-    push(head, 6);
-    vector<int>vec{1,2,3,4,5};
-    // Node *temp = head;
-    // int i = 0;
-    // while (i < 5) {
-    //     temp = temp->next;
-    //     i++;
-    // }
-    // temp->next = head->next;
-    // detectCycle(head);
 
-    return 0;
+    int arr[]{5,6,12,14,17};
+    int n=sizeof(arr)/sizeof(arr[0]);
+    auto it=lower_bound(arr,arr+n,8); 
+    std::cout<<it-arr<<std::endl;
+    // Node *head = new Node(1);
+    // push(head, 2);
+    // push(head, 3);
+    // push(head, 4);
+    // push(head, 5);
+    // push(head, 6);
+    // vector<int>vec{1,2,3,4,5};
+    // // Node *temp = head;
+    // // int i = 0;
+    // // while (i < 5) {
+    // //     temp = temp->next;
+    // //     i++;
+    // // }
+    // // temp->next = head->next;
+    // // detectCycle(head);
+    //
+    // return 0;
 }
