@@ -1,13 +1,11 @@
 #include <iostream>
 #include <cstring>
 #include <string>
-
 using namespace std;
-
-int main()
-{
+int main() {
     // palindrome check of a  given substring
-    char arr[] = "something";
-    cout << strlen(arr);
+    string str = "something";
+    string temp=str.substr(1);
+    std::cout<<temp<<std::endl;
     return 0;
 }
