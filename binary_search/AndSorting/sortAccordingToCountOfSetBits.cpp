@@ -24,7 +24,7 @@ int main() {
         int temp=arr[i];
         int count=0;
         while (temp!=0) {
-            if ((temp&1) !=0 ) { // & has lower precedence than != so 
+            if ((temp&1) !=0 ) { // & has lower precedence than != so  // [ rule ]
                                // != will be evaluated first
                 count++;
             }
