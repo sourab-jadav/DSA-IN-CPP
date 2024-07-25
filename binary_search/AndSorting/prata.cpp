@@ -38,6 +38,64 @@ bool ispossible(int arr[], int n, int time, int p) {
     }
     return false;
 }
+// learn to take the inputs in the prata file
+// Input
+//
+// The first line tells the number of test cases. Each test case c
+// onsist of 2 lines. In the first line of the test case we have P
+// the number of prata ordered. In the next line the first integer
+// denotes the number of cooks L and L integers follow in the same
+// line each denoting the rank of a cook.
+//
+//  Input:
+// 3
+// 10
+// 4 1 2 3 4
+// 8
+// 1 1
+// 8
+// 8 1 1 1 1 1 1 1 1
+
+// Output:
+// 12
+// 36
+// 1
+//
+//
+
+int solve(int arr[],int n,int p){
+
+    int s=0,e=1e7;
+    int mid,ans=-1;
+    while (s<=e) {
+        mid=(s+e)/2;
+        if (ispossible(arr, n, mid, p)) {
+            ans=mid;
+            e=mid-1;
+        }else {
+            s=mid+1;
+        }
+    }
+    return ans;
+}
+
 
 int main() {
-  int arr[]{1, 2, 3, 4};
+  // first line contains number of transactions
+  int t;
+  cin>>t;
+while (t--) {
+    int p;
+    cin>>p;
+    int n;
+    cin>>n;
+    int arr[n];
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+    std::cout<<solve(arr,n,p)<<std::endl;
+
+}
+
+  return 0;
+}
