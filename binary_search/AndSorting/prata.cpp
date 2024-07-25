@@ -2,6 +2,8 @@
 #include <string>
 #include <vector>
 using namespace std;
+// initial though was this though which directly calculates the minimum possible time to make
+// https://www.notion.so/binary-search-1ddf79c8639d4308906b3a7068928181?pvs=4#a028bbd2f18f491682718738d85b2a52
 // https://www.spoj.com/problems/PRATA/
 /*
     This problem uses binary search approach , as answer is monotonic function .
