@@ -13,7 +13,7 @@ struct job {
     int deadline;
     int profit;
 };
-
+// there is another type called job scheduling
 bool comparator(struct job j1, struct job j2) { return j1.profit >= j2.profit; }
 
 int main() {
