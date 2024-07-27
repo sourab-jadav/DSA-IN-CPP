@@ -75,7 +75,6 @@ bool bst::remove(bst *root,int data,bst* &prev,bool left,bool right){  // this l
         prev=root;
         return remove(root->right, data, prev, false, true);
     }
-
     return false;
 }
 
@@ -93,7 +92,11 @@ bst *bst::insert(bst *root, int data) {
     }
     return root;
 }
+
+
+
 int main() {
+    // insert delete operations on binary search tree
     bst c;
     bst *root = nullptr;
     vector<int> vec{10, 500, 40, 20, 30, 100, 500,7,8,1,25,28};
