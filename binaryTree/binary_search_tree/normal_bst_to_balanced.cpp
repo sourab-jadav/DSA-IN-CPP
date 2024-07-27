@@ -130,7 +130,7 @@ int main() {
         root = c.insert(root, v);
     }
     c.preorder(root,false,false);
-    c.leftRightRotate(root);
+    root=c.leftRightRotate(root);
     c.preorder(root, false, false);
     return 0;
 }
