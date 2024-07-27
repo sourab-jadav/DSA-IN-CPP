@@ -14,6 +14,8 @@ class bst {
     void preorder(bst *root,bool left, bool right);
     bst *rightrotate(bst *root);
     bst *leftrotate(bst* root);
+    bst *leftRightRotate(bst* root);
+    bst *rightLeftRotate(bst* root);
 };
 void bst::preorder(bst* root,bool left,bool right){
     if (root==nullptr) {
@@ -102,19 +104,33 @@ bst *bst::leftrotate(bst* root){
     }
     return root;
 }
-
+// https://www.notion.so/avl-tree-64d21adfbd8b4306949e8fca83393bc3?pvs=4#03fdc3fd599543fbafdf33a4d5e45ffb
+// let's do left right and right left rotation together
+bst* bst::rightLeftRotate(bst* root){
+    bst c;
+    bst* x_root=c.rightrotate(root->right);
+    x_root=c.leftrotate(root);
+    return x_root;
+}
+bst* bst::leftRightRotate(bst* root){
+    bst c;
+    bst* x_root=c.leftrotate(root->left);
+    root->left=x_root;
+    x_root=c.rightrotate(root);
+    return x_root;
+}
 
 int main() {
-    vector<int> vec{10,5,1,6,7}; // use this to check right rotate
+    // vector<int> vec{10,5,1,6,7}; // use this to check right rotate
     // vector<int>vec{1,10,50,18,7,8} // use this to check left rotate
+    vector<int>vec{10,1,2}; // take an example for  left right rotate
     bst c;
     bst *root = nullptr;
     for (auto v : vec) {
         root = c.insert(root, v);
     }
     c.preorder(root,false,false);
-    root=c.rightrotate(root);
-    std::cout<<std::endl;
-    c.preorder(root,false,false);
+    c.leftRightRotate(root);
+    c.preorder(root, false, false);
     return 0;
 }
