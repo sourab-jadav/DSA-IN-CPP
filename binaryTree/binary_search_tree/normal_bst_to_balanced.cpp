@@ -1,3 +1,5 @@
+#include <algorithm>
+#include <cstdlib>
 #include <iostream>
 #include <string>
 #include <vector>
@@ -10,13 +12,21 @@ class bst {
     bst();
     bst(int val);
     bst *insert(bst *root, int data);
+    bst *insertAndBalance(bst* root,int data);
     void inorder(bst *root,bool left, bool right);
     void preorder(bst *root,bool left, bool right);
     bst *rightrotate(bst *root);
     bst *leftrotate(bst* root);
     bst *leftRightRotate(bst* root);
     bst *rightLeftRotate(bst* root);
+    int getHeight(bst* root);
 };
+int bst::getHeight(bst* root){
+    if (!root) {
+        return 0;
+    }
+    return 1+max(getHeight(root->left),getHeight(root->right));
+}
 void bst::preorder(bst* root,bool left,bool right){
     if (root==nullptr) {
         return;
@@ -71,6 +81,29 @@ bst *bst::insert(bst *root, int data) {
         root->right = insert(root->right, data);
     }
     return root;
+}
+bst *bst::insertAndBalance(bst* root,int data){
+    // let's insert by balancing the tree structre
+    bst c;
+    bst* x_root=c.insert(root, data);
+    int left_height=getHeight(x_root->left);
+    int right_height=getHeight(x_root->right);
+    if (abs(left_height-right_height)>1) {
+        if (left_height>right_height) {
+            if (x_root->left and x_root->left->left) {
+                x_root=leftrotate(root);
+            }else if (x_root->left and x_root->left->right) {
+                x_root=leftRightRotate(root);
+            }
+        }else {
+            if (x_root->right and x_root->right->right) {
+                x_root=rightrotate(root);
+            }else if (x_root->right and x_root->right->left) {
+                x_root=rightLeftRotate(root);
+            }
+        }
+    }
+    return x_root;
 }
 bst *bst::rightrotate(bst *root) {
     if (root->left && root->left->right) {
@@ -127,10 +160,10 @@ int main() {
     bst c;
     bst *root = nullptr;
     for (auto v : vec) {
-        root = c.insert(root, v);
+        root = c.insertAndBalance(root, v);
     }
     c.preorder(root,false,false);
-    root=c.leftRightRotate(root);
-    c.preorder(root, false, false);
+    // root=c.leftRightRotate(root);
+    // c.preorder(root, false, false);
     return 0;
 }
