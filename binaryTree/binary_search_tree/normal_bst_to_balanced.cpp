@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 using namespace std;
+// the avl tree implemented here does self balancing on insertion
 class bst {
     int data;
     bst *left;
