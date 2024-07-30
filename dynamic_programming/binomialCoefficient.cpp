@@ -42,7 +42,7 @@ int solvedp(int n,int r){ // [ own ]
 
 
 // further optimizing it using only one array
-int solveoptdp(int n,int r){ // this worked surprisingly
+int solveoptdp(int n,int r){ // this worked surprisingly // [ own ]
     int dp[r+1];
     memset(dp, 0, sizeof(dp));
     dp[0]=1;
