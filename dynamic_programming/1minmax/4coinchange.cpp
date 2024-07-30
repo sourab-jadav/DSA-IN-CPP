@@ -1,11 +1,12 @@
 #include <algorithm>
 #include <climits>
+#include <cstring>
 #include <iostream>
 #include <unordered_map>
 #include <vector>
 using namespace std;
 
-
+// after solving this one solve the knapsack problem
 
 // // why this code is failing
 // // for sum=1  => 1 - 1
@@ -15,7 +16,7 @@ using namespace std;
 // //               [ 2,1,1 ] [ 2,2 ] 
 // //               [ 3,1 ]  - 7
 //
-// actual output: - {1, 1, 1, 1}, {1, 1, 2}, {2, 2}, {1, 3} -4
+// desired output: - {1, 1, 1, 1}, {1, 1, 2}, {2, 2}, {1, 3} -4
 //
 //
 //
@@ -52,10 +53,42 @@ int solve(vector<int>vec,int n,int sum){
     }
     return solve(vec, n, sum-vec[n-1])+solve(vec, n-1, sum);
 }
+// 
+// let's try to implement dynamic progarmming solution
+// for sum=0 it's value is 0
+int dp(vector<int>vec,int n,int sum){
+    int arr[n+1][sum+1];
+    memset(arr, 0, sizeof(arr));
+    arr[0][0]=1; // when sum is 0 only 1 way is select no coin
+                 // here in the above recursive solution 
+                 // by including the current element and 
+                 // no inluding the current element
 
+    //this approach cannot be possible
+    // for(int i=1;i<=sum;i++){
+    //     for(int j=0;j<n;j++){
+    //         if (i-) {
+    //         
+    //         }
+    //     }
+    //
+    // }
+
+    for(int idx=1;idx<=n;idx++){
+        for(int s=0;s<=sum;s++){
+            arr[idx][s]+=arr[idx-1][s];
+            if (s-vec[idx-1]>=0) {
+                arr[idx][s]+= arr[idx][s-vec[idx-1]];
+            }
+        }
+    }
+    return arr[n][sum];
+}
 int main() {
 vector<int>coins = {1,2,3};
-int result=solve(coins, coins.size(),4);
+// int result=solve(coins, coins.size(),4);
+// std::cout<<result<<std::endl;
+int result=dp(coins, coins.size(), 5);
 std::cout<<result<<std::endl;
     return 0;
 }
