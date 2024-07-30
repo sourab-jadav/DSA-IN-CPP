@@ -37,13 +37,33 @@ int knapsackmemo(int profit[],int weight[],int **memo,int W,int n){ // [ own ]
     }
 }
 
+    // memoization for the problem
+    // int** memo; // allocating the memory dynamically
+    // 
+    // // int* temp=new int[5]; // here temp is a pointer that is pointing to first block 
+    // //                       // index 
+    //
+    // memo=new int*[n+1]; // n rows are created
+    // if (!memo) {
+    //     std::cout<<"rows creation failed"<<std::endl;
+    //     return 1;
+    // }
+    // for(int i=0;i<n+1;i++){
+    //     memo[i]=new int[W+1];
+    //     if (!memo[i]) {
+    //         std::cout<<"column creation failed"<<std::endl;
+    //         return 1;
+    //     }
+    //     // memset(memo[i], -1, sizeof(*memo[i])); // this is wrong
+    //     memset(memo[i], -1, (W+1)*sizeof(int));
+    // }
+    // std::cout<<knapsackmemo(profit,weight,memo,W,n)<<std::endl;
+
 // dynamic programming solution for the above problem
 int dpknapsack(int profit[],int weight[],int W,int n){ // [ own ]
     int dp[n+1][W+1];
     dp[0][0]=0;
-    for(int i=0;i<=W;i++){
-        dp[0][i]=0;
-    }
+    memset(dp, 0, sizeof(dp)); // this is important
     for(int i=1;i<=n;i++){
         for(int j=1;j<=W;j++){
             if (j<weight[i-1]) {
@@ -62,30 +82,6 @@ int main() {
     int weight[] = { 10, 20, 30 };
     int W = 50;
     int n = sizeof(profit) / sizeof(profit[0]);
-    // std::cout<<knapSack(profit, weight, W, n)<<std::endl;
-
-
-    // memoization for the problem
-    int** memo; // allocating the memory dynamically
-    
-    // int* temp=new int[5]; // here temp is a pointer that is pointing to first block 
-    //                       // index 
-
-    memo=new int*[n+1]; // n rows are created
-    if (!memo) {
-        std::cout<<"rows creation failed"<<std::endl;
-        return 1;
-    }
-    for(int i=0;i<n+1;i++){
-        memo[i]=new int[W+1];
-        if (!memo[i]) {
-            std::cout<<"column creation failed"<<std::endl;
-            return 1;
-        }
-        // memset(memo[i], -1, sizeof(*memo[i])); // this is wrong
-        memset(memo[i], -1, (W+1)*sizeof(int));
-    }
-    // std::cout<<knapsackmemo(profit,weight,memo,W,n)<<std::endl;
     std::cout<<dpknapsack(profit, weight, W, n)<<std::endl;
     return 0;
 }
