@@ -3,6 +3,7 @@
 #include <vector>
 #include <string>
 using namespace std;
+// also see dynamic_programming/generateParanthesis.cpp
 int main() {
      // printing the catalan sequence
     int cat[2345];
