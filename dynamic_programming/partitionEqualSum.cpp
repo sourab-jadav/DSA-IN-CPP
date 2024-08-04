@@ -15,7 +15,7 @@
         std::cout<<std::endl;                          \
     } while (0)
 using namespace std;
-// this function takes total sum of array elements and checks if a partition is possible or not
+// this function takes total sum of array elements and checks if a partition is possible or not // [ working ]
 // bool solve(int arr[],int curr_sum,int target,int n){ // i don't know how to tabulize this recursion
 //     if (n<1) return false;
 //     if (curr_sum==target) return true;
@@ -23,7 +23,7 @@ using namespace std;
 // }
 
 // this function takes sum/2 and n array elements
-// and checks if a subsequenc is possible with it
+// and checks if a subsequenc is possible with it // [ working ]
 bool solveSumby2(int arr[],int n,int sum){
     if (n<1) {
        return false;
@@ -84,54 +84,74 @@ for_each(arr,arr+n,[&sum](int x){
 // }
 
 
-// dp version two;
+// dp version two; // this is working solution
+// if (sum%2==0) {
+//     sum=sum/2;
+//     int dp[n+1][sum+1];
+//     memset(dp, 0, sizeof(dp));
+//     // check the base cases when n=0 
+//     // for all the sum values the result is 0
+//     for(int i=0;i<=sum;i++){
+//         dp[0][i]=0;
+//     }
+//
+//     // when sum is zero irrespective of the value of zero 
+//     // the result is 1
+//     for(int i=1;i<=n;i++){
+//         dp[i][0]=1;
+//     }
+//
+//     // when n value is 1 and if there exist an element which results 
+//     // in zero on subtraction then for that sum value the result is 1
+//     for(int s=1;s<=sum;s++){
+//         for(int i=0;i<n;i++){
+//             if (s-arr[i]==0) {
+//                 dp[i+1][s]=1;
+//             }
+//         }
+//     }
+//     // here above instead of initializing for the whole table we can just
+//     // inititalize first row based on the first element of the array
+//     if (arr[0]<=sum) {
+//         dp[1][arr[0]]=1;
+//     }
+//     printxyz(dp, n+1, sum+1);
+//     // now do the recursive implementation
+//     for(int i=2;i<=n;i++){
+//         for(int s=1;s<=sum;s++){
+//             if (s-arr[i-1]<0) {
+//                 dp[i][s]=dp[i-1][s];
+//             }else{
+//                 dp[i][s]=dp[i-1][s-arr[i-1]] or dp[i-1][s];
+//             }
+//         }
+//     }
+//     printxyz(dp, n+1, sum+1);
+//     std::cout<<"the result is "<<dp[n][sum]<<std::endl;
+//
+//     
+// }else {
+//     std::cout<<"not possible"<<std::endl;
+// }
+
+
+// further optimizing the dp solution // [ working ]
 if (sum%2==0) {
-    sum=sum/2;
-    int dp[n+1][sum+1];
-    memset(dp, 0, sizeof(dp));
-    // check the base cases when n=0 
-    // for all the sum values the result is 0
-    for(int i=0;i<=sum;i++){
-        dp[0][i]=0;
-    }
-
-    // when sum is zero irrespective of the value of zero 
-    // the result is 1
-    for(int i=1;i<=n;i++){
-        dp[i][0]=1;
-    }
-
-    // when n value is 1 and if there exist an element which results 
-    // in zero on subtraction then for that sum value the result is 1
-    for(int s=1;s<=sum;s++){
-        for(int i=0;i<n;i++){
-            if (s-arr[i]==0) {
-                dp[i+1][s]=1;
-            }
-        }
-    }
-    // here above instead of initializing for the whole table we can just
-    // inititalize first row based on the first element of the array
+    sum/=2;
+    int dp[sum+1];
+    memset(dp, 0, sizeof dp);
+    dp[0]=1;
     if (arr[0]<=sum) {
-        dp[1][arr[0]]=1;
+        dp[arr[0]]=1;
     }
-    printxyz(dp, n+1, sum+1);
-    // now do the recursive implementation
     for(int i=2;i<=n;i++){
-        for(int s=1;s<=sum;s++){
-            if (s-arr[i-1]<0) {
-                dp[i][s]=dp[i-1][s];
-            }else{
-                dp[i][s]=dp[i-1][s-arr[i-1]] or dp[i-1][s];
+        for(int j=sum;j>=1;j--){
+            if (j-arr[i-1]>=0) {
+                dp[j]=dp[j] or dp[j-arr[i-1]];
             }
         }
     }
-    printxyz(dp, n+1, sum+1);
-    std::cout<<"the result is "<<dp[n][sum]<<std::endl;
-
-    
-}else {
-    std::cout<<"not possible"<<std::endl;
+    std::cout<<"the result is "<<dp[sum]<<std::endl;
 }
 
 
