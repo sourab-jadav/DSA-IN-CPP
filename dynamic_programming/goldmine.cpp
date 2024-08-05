@@ -21,17 +21,23 @@ using namespace std;
 // toward right
 // towards right and up
 // towards right and down
-int solve(vector<vector<int>>&vec,int i,int j){
+int collectGold(vector<vector<int>>&vec,int i,int j){
     // if (i<0 or j<0 or i>=vec.size() or j>=vec[0].size()) {
     //     return 0;
     // }
-
     if (i<0 or i==vec.size() or j==vec[0].size()) {
         return 0;
     }
+    return vec[i][j]+max(max(collectGold(vec, i+1, j+1),collectGold(vec, i-1, j+1)),collectGold(vec, i, j+1));
+}
 
-
-    return vec[i][j]+max(max(solve(vec, i+1, j+1),solve(vec, i-1, j+1)),solve(vec, i, j+1));
+int solve(vector<vector<int>>vec){
+    int maxGold=0;
+    for(int i=0;i<vec.size();i++){
+        int goldCollected=collectGold(vec, i, 0);
+        maxGold=max(maxGold,goldCollected);
+    }
+    return maxGold;
 }
 
 
@@ -56,6 +62,6 @@ vector<vector<int>>vec{ {1, 3, 1, 5},
         j=i;
       }
   }
-  std::cout<<solve(vec, j, k)<<std::endl;
+  std::cout<<solve(vec)<<std::endl;
   return 0;
 }
