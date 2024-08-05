@@ -22,9 +22,15 @@ using namespace std;
 // towards right and up
 // towards right and down
 int solve(vector<vector<int>>&vec,int i,int j){
-    if (i<0 or j<0 or i>=vec.size() or j>=vec[0].size()) {
+    // if (i<0 or j<0 or i>=vec.size() or j>=vec[0].size()) {
+    //     return 0;
+    // }
+
+    if (i<0 or i==vec.size() or j==vec[0].size()) {
         return 0;
     }
+
+
     return vec[i][j]+max(max(solve(vec, i+1, j+1),solve(vec, i-1, j+1)),solve(vec, i, j+1));
 }
 
