@@ -5,6 +5,7 @@
 #include <string>
 #include <vector>
 using namespace std;
+// after this problem try assembly line scheduling both have the same approach
 #define printxyz(arr, rows, cols)                                              \
   do {                                                                         \
     std::cout << std::endl;                                                    \
@@ -71,6 +72,7 @@ int solveDP(vector<vector<int>>&vec){
     return result;
 }
 // further optimizing the dp solution
+// as we are only concerned with the last column
 int f_optimize_dp(vector<vector<int>>vec){
     int n=vec.size();
     int m=vec[0].size();
@@ -107,19 +109,41 @@ int f_optimize_dp(vector<vector<int>>vec){
     return result;
 }
 
-// we can further optimize this solution 
-// as we are only concerned with the last column
+// let's say we want to print the path for which we got the desired result #printing path
 
-
-
+bool findpath(vector<int>&path,int result,vector<vector<int>>vec,int col){
+    if (result==0) {
+        return true;
+    }
+    if (col==vec[0].size()) {
+        return false;
+    }
+    bool check=false;
+    for(int i=0;i<vec.size();i++){
+        if (result-vec[i][col]>=0) {
+            path.push_back(vec[i][col]);
+            check=findpath(path, result-vec[i][col], vec, col+1);
+            if (check==true) {
+                break;
+            }else {
+                path.pop_back();
+            }
+        }
+    }
+    if (check==true) {
+        return true;
+    }else {
+        return false;
+    }
+}
 int main() {
   // vector<vector<int>>vec{{1, 3, 3},
   //                       {2, 1, 4},
   //                       {0, 6, 4}};
 vector<vector<int>>vec{{10, 33, 13, 15},
-                  {22, 21, 04, 1},
-                  {5, 0, 2, 3},
-                  {0, 6, 14, 2}};
+                      {22, 21, 04, 1},
+                      {5, 0, 2, 3},
+                      {0, 6, 14, 2}};
   // get the max value for the first column
 // vector<vector<int>>vec{ {1, 3, 1, 5},
 //                       {2, 2, 4, 1},
@@ -132,6 +156,18 @@ vector<vector<int>>vec{{10, 33, 13, 15},
   int cols=vec[0].size();
   // std::cout<<solve(vec)<<std::endl;
   // std::cout<<solveDP(vec)<<std::endl;
-  std::cout<<f_optimize_dp(vec)<<std::endl;
+  int result=f_optimize_dp(vec);
+  vector<int>path{};
+  bool check=findpath(path, result, vec, 0);
+  std::cout<<"the result value is "<<result<<std::endl;
+  if (check) {
+    std::cout<<"path is found"<<std::endl;
+    for (auto x : path) {
+        std::cout<<x<<" ";
+    }
+    std::cout<<std::endl;
+  }else {
+    std::cout<<"path is not found"<<std::endl;
+  }
   return 0;
 }
