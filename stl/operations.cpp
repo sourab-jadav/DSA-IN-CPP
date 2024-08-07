@@ -48,3 +48,10 @@ int main(){
 
 
 }
+
+
+// ----------------------------------------copying one vector from other by assignment----------------------------------------
+
+// vector<int>v1(m+1,0);
+// vector<int>v2{n+1,-2);
+//     v1=v2; // by doing this all the elements of the v1 gets transferred to v1
