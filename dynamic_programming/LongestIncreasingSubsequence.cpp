@@ -25,8 +25,7 @@ using namespace std;
         std::cout<<std::endl;                          \
 
 
-
-
+// also try max sum increasing subsequence
 int solveRecursive(int arr[],int n,int i,int prev){
     if (i==n) {
         return 0;
@@ -64,8 +63,9 @@ int solveDP(int arr[],int n){
     }
     return result;
 }
-
-
+// 
+// below is the solution taken from geeks for geeks 
+// https://www.geeksforgeeks.org/longest-increasing-subsequence-dp-3/
 int main() {
     // int arr[]{3,10,2,1,20};
     int arr[]{0,8,4,12,2,10,6,14,1,9,5,13,3,11,7,15};
