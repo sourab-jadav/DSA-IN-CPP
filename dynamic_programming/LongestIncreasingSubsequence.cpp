@@ -39,12 +39,6 @@ int solveRecursive(int arr[],int n,int i,int prev){
     return max(include,exclude);
 }
 // tabulation solution
-// int solve_dp(int arr[],int n){
-//     int max_value=INT_MIN;
-//     for(int i=0;i<n;i++){
-//         max_value=max(max_value,arr[i]);
-//     }
-// }
 int solveDP(int arr[],int n){
     int dp[n];
      // the idea here to 
@@ -75,11 +69,10 @@ int solveDP(int arr[],int n){
 int main() {
     // int arr[]{3,10,2,1,20};
     int arr[]{0,8,4,12,2,10,6,14,1,9,5,13,3,11,7,15};
+    // int arr[] = { 10, 22, 9, 33, 21, 50, 41, 60 };
     int n=sizeof(arr)/sizeof(arr[0]);
     // int result=solveRecursive(arr, n, 0, INT_MIN);
     // std::cout<<result<<std::endl;
     std::cout<<solveDP(arr, n)<<std::endl;
     return 0;
 }
-
-
