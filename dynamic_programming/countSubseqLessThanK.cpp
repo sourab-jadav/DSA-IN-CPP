@@ -117,11 +117,6 @@ int solveDP(int arr[],int k,int n){
     }
     return dp[k][n];
 }
-
-
-
-
-
 int main() {
     int arr[]{1,2,3,4};
     int n=sizeof(arr)/sizeof(arr[0]);
