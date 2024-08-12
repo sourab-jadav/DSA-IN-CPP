@@ -1,3 +1,5 @@
+#include <algorithm>
+#include <cstring>
 #include <iostream>
 #include <vector>
 #include <string>
@@ -40,20 +42,36 @@ using namespace std;
 // 
 
 // recursive approach
-int solve(int no_of_floors_left,int no_of_eggs_left){
-    if (no_of_eggs_left==1) {
-        return no_of_floors_left;
+// int solve(int no_of_floors_left,int no_of_eggs_left){
+//     if (no_of_eggs_left==1) {
+//         return no_of_floors_left;
+//     }
+//     // when the egg breaks 
+//     int breaks=1+solve(no_of_floors_left-1, no_of_eggs_left-1);
+//     int does_not_break=solve(int no_of_floors_left, int no_of_eggs_left)
+// }
+
+
+// e is number of eggs and f is number of floors
+int solve_dp(int f,int e){
+
+    // when only one e is left doesn't matter how many f's you have you 
+    // return number of no. of f's
+    // 
+    int dp[f+1][e+1];
+    memset(dp, 0, sizeof(dp));
+    for(int i=1;i<=f;i++){
+        dp[i][1]=i;
     }
-    // when the egg breaks 
-    int breaks=1+solve(no_of_floors_left-1, no_of_eggs_left-1);
-    int does_not_break=solve(int no_of_floors_left, int no_of_eggs_left)
+    for(int i=2;i<=f;i++){
+        for(int j=2;j<=e;j++){
+            dp[i][j]=min(1+dp[i-1][j-1],dp[f-i][j]);
+        }
+    }
+    return dp[f][e];
 }
 
 
-
-
-
 int main() {
-    
     return 0;
 }
