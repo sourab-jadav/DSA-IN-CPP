@@ -1,12 +1,12 @@
 #include <algorithm>
-#include <climits>
-#include <filesystem>
+#include <cstring>
 #include <iostream>
-#include <utility>
 #include <vector>
 #include <string>
-// https://www.geeksforgeeks.org/maximum-length-chain-of-pairs-dp-20/
 using namespace std;
+#define R 6
+#define C 5
+
 #define printxyz(arr, rows, cols)                      \
     do {                                               \
         std::cout<<std::endl;                          \
@@ -25,26 +25,38 @@ using namespace std;
         }                                              \
         std::cout<<std::endl;                          \
 
-int recursiveSol(vector<pair<int, int>>vec,int i,int prev){
-    if (i==vec.size()) {
-        return 0;
+int printMaxSubSquare(bool M[R][C]){
+    int result[R][C];
+    memset(result, 0, sizeof(result));
+    for(int i=0;i<R;i++){
+        for(int j=0;j<C;j++){
+            result[i][j]=M[i][j];
+        }
     }
-    int include=0;
-    if (vec[i].first>prev) {
-        include=1+recursiveSol(vec, i+1, vec[i].second);
+    bool flag=true;
+    int res=1;
+    for(int i=1;i<R;i++){
+        for(int j=1;j<C;j++){
+            if (M[i-1][j-1]==1 and M[i-1][j]==1 and M[i][j-1]==1) {
+                int x=min(result[i-1][j-1],min(result[i-1][j],result[i][j-1]));
+                result[i][j]=x+1;
+                if (x+1>res) {
+                    res=x+1;
+                }
+            }
+        }
     }
-    int exclude=recursiveSol(vec, i+1, prev);
-    return max(include,exclude);
+
+    printxyz(result, R, C);
+    return res;
 }
-int main() {
-    // this is problem is based on 
-    // dynamic_programming/LongestIncreasingSubsequence.cpp
-    vector<pair<int, int>>vec{{5, 24}, {39, 60}, {15, 28}, {27, 40}, {50, 90}};
-    int result=recursiveSol(vec, 0, INT_MIN);
-    std::cout<<result<<std::endl;
-
-    return 0;
-
+int main()
+{
+    
+    bool M[R][C] = { { 0, 1, 1, 0, 1 }, { 1, 1, 0, 1, 0 },
+                     { 0, 1, 1, 1, 0 }, { 1, 1, 1, 1, 0 },
+                     { 1, 1, 1, 1, 1 }, { 0, 0, 0, 0, 0 } };
+ 
+    int result=printMaxSubSquare(M);
+    std::cout<<"the max square is of order "<<result<<std::endl;
 }
-
-
