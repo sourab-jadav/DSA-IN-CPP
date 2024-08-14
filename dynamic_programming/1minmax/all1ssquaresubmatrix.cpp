@@ -46,7 +46,6 @@ int printMaxSubSquare(bool M[R][C]){
             }
         }
     }
-
     printxyz(result, R, C);
     return res;
 }
