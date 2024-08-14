@@ -1,7 +1,7 @@
 #include <algorithm>
 #include <iostream>
 using namespace std;
-
+// binary_search/3findFirstAndLast_v2.cpp
 int binarySearch(int arr[], int low, int high, int x) { // simple and fast
     int mid = 0;
     while ( low <= high) { // <= is important here if you search for value 2 in range (1,5)
