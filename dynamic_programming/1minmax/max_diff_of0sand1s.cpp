@@ -51,6 +51,9 @@ int getmax_diff(string s){
         }
         if (z_count>one_count) {
             result=max(result,z_count-one_count);
+        }else {
+            z_count=0;
+            one_count=0;
         }
     }
     return result;
@@ -58,7 +61,7 @@ int getmax_diff(string s){
 
 
 int main() {
-    string s = "1111";
+    string s = "011111010011";
     std::cout<<getmax_diff(s)<<std::endl;
     return 0;
 }
