@@ -40,27 +40,28 @@ int solve(int arr[],int i,int j,int k,int n){
 // for a given i value you get the equivalent right most j value so that a[j]-a[i]<=k 
 // get the minimum possible value of (n-(j-i+1))
 
-int findj(int arr[],int i,int n,int k ){
+int findj(int arr[],int key,int i,int n,int k ){
     int low=i+1;
     int high=n-1;
     int result=-1;
+    std::cout<<low <<" "<<high<<std::endl;
     while (low<=high) {
         int mid=low+(high-low)/2;
-        if (arr[mid]-arr[i]<=k) {
+        if (arr[mid]-key<=k) {
             result=mid;
             low=mid+1;
         }else {
-            high=mid;
+            high=mid-1; // keeping high=mid creates problem for input  int a[] = {10,11,15,16,18}, k = 3 ;
         }
     }
     return result;
 }
-
 int removals(int arr[],int n,int k){
     // traverse and for a given i get the equivalent j value
     int result=INT_MAX;
+    sort(arr,arr+n);
     for(int i=0;i<n;i++){
-        int j=findj(arr, i, n, k);
+        int j=findj(arr, arr[i], i, n, k);
         if (j!=-1) {
             result=min(result,(n-(j-i+1)));
         }
@@ -68,13 +69,12 @@ int removals(int arr[],int n,int k){
     return result;
 }
 int main() {
+
     int a[] = {10,11,15,16,18}, k = 3 ;
     // int a[] = {1, 5, 6, 2, 8}, k=2;
     int n=sizeof a/sizeof a[0];
-    sort(a,a+n);
-    printarray(a, n);
-    // int result =solve(a, 0, n-1, k, n);
-    // std::cout<<result <<std::endl;
-    std::cout<<removals(a, n, k)<<std::endl;
+    int result =solve(a, 0, n-1, k, n);
+    std::cout<<result <<std::endl;
+    // std::cout<<removals(a, n, k)<<std::endl;
     return 0;
 }
