@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <climits>
 #include <iostream>
 #include <vector>
 #include <string>
@@ -28,16 +29,52 @@ int solve(int arr[],int i,int j,int k,int n){
     if (arr[j]-arr[i]<=k) {
         return 0;
     }
-    return min(1+solve(arr, i+1, j, k,n),1+solve(arr, i, j-1, k,n));
+    // return min(1+solve(arr, i+1, j, k,n),1+solve(arr, i, j-1, k,n));
+    return 1+min(solve(arr, i+1, j, k,n),solve(arr, i, j-1, k,n));
 }
 // https://www.geeksforgeeks.org/minimum-removals-array-make-max-min-k/
+// applying binary search to solve this problem
+
+// binary search based approach
+// the idea is you start traversing from left 
+// for a given i value you get the equivalent right most j value so that a[j]-a[i]<=k 
+// get the minimum possible value of (n-(j-i+1))
+
+int findj(int arr[],int i,int n,int k ){
+    int low=i+1;
+    int high=n-1;
+    int result=-1;
+    while (low<=high) {
+        int mid=low+(high-low)/2;
+        if (arr[mid]-arr[i]<=k) {
+            result=mid;
+            low=mid+1;
+        }else {
+            high=mid;
+        }
+    }
+    return result;
+}
+
+int removals(int arr[],int n,int k){
+    // traverse and for a given i get the equivalent j value
+    int result=INT_MAX;
+    for(int i=0;i<n;i++){
+        int j=findj(arr, i, n, k);
+        if (j!=-1) {
+            result=min(result,(n-(j-i+1)));
+        }
+    }
+    return result;
+}
 int main() {
-    // int a[] = {1, 3, 4, 9, 10, 11, 12, 17, 20}, k = 4 ;
-int a[] = {1, 5, 6, 2, 8}, k=2;
+    int a[] = {10,11,15,16,18}, k = 3 ;
+    // int a[] = {1, 5, 6, 2, 8}, k=2;
     int n=sizeof a/sizeof a[0];
     sort(a,a+n);
     printarray(a, n);
-    int result =solve(a, 0, n-1, k, n);
-    std::cout<<result <<std::endl;
+    // int result =solve(a, 0, n-1, k, n);
+    // std::cout<<result <<std::endl;
+    std::cout<<removals(a, n, k)<<std::endl;
     return 0;
 }
