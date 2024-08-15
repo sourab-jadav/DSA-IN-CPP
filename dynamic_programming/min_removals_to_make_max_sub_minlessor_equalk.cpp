@@ -69,7 +69,6 @@ int removals(int arr[],int n,int k){
     return result;
 }
 int main() {
-
     int a[] = {10,11,15,16,18}, k = 3 ;
     // int a[] = {1, 5, 6, 2, 8}, k=2;
     int n=sizeof a/sizeof a[0];
