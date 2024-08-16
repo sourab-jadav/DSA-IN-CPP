@@ -2,8 +2,10 @@
 #include <bits/stdc++.h>
 #include <cstring>
 #include <unordered_set>
+#include <vector>
 
 using namespace std;
+// https://www.geeksforgeeks.org/word-break-problem-dp-32/
 // 
 // the qeustion is you are given an input string you have to find out if a given string can be segmented 
 // into a space seperated sequence of disctonary of words 
@@ -92,6 +94,26 @@ bool wordbreak(string s,unordered_set<string>d){
     }
     return false;
 }
+
+
+bool wordBreak_dp(string s,unordered_set<string >d){
+    int n=s.length();
+    vector<bool>dp(n+1,false);
+    dp[0]=0; // with string of length 0 ,0 word breaks are possible
+    for(int i=1;i<=n;i++){
+        // we check for smaller strings by if we find a j 
+        // such that prefix of length j can be broken  // here we looking for subproblems in length j 
+                                                        // from index j we are looking for a valid word
+        // and s[j..i-1] forms a valid word
+        for(int j=0;j<i;j++){
+            if (dp[j] and find(d.begin(),d.end(),s.substr(j,i-j))!=d.end()) {
+                dp[i]=true;
+            }
+        }
+    }
+    return dp[n];
+}
+
 int main() {
     string s= "iiiiiiii";
     unordered_set<string> words = {"mobile", "samsung", "sam", 
