@@ -56,7 +56,6 @@ void solveLPS(string str,string curr,int i){
 // if the start and end value matches to i+1 and j-1 +2 
 // if j-i+1 is 2 and a[i]=a[j] then return 2 
 // if the j-i+1 > 2 and the values are not equal return max((i+1,j),(i,j-1))
-
 int solveLPS_recursive(string str,int i,int j){ // in this solution we are only traversing 
                                                 // half of the string length
     if (i<j) {
