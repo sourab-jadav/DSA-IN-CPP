@@ -10,8 +10,7 @@ struct TreeNode
     TreeNode *right;
     TreeNode(int k) : val(k), left(nullptr), right(nullptr){};
 };
-class Solution
-{
+class Solution {
 public:
     // res to store maximum distance from the first infected node
     unordered_map<int, vector<int>> v; // adjacency list
