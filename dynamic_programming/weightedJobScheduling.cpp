@@ -37,6 +37,14 @@ int solve(Job arr[],int i,int low,int high,int n){
     //  - you will include only if it does not overlap with the interval of low and high
     // if you don't include the current job just do i+1
 
+    int include=0;
+    int exclude=0;
+    if (arr[i].start > high ) {
+        include=max(solve(arr, i+1, min(arr[i].start,low), max(arr[i].finish,high), n)+arr[i].profit,solve(arr, i+1, low, high, n));
+    }else {
+        exclude=solve(arr, i+1, low, high, n);
+    }
+    return max(include,exclude);
 }
 
 int findMaxProfit(Job arr[],int n){
