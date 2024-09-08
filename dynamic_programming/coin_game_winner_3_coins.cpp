@@ -25,7 +25,7 @@ bool solve(int x,int y,int n,bool isA){
     if (n<0) {
         return false;
     }
-    if (n==1) {
+    if (n==1 ) {
         if (isA) {
             return true;
         }else{
@@ -54,6 +54,9 @@ bool solve(int x,int y,int n,bool isA){
     return res1 or res2 or res3;
 }
 int solveProblem(int x,int y,int n){
+    if (n==1 or n-x ==0 or n-y==0) {
+        return 1;
+    }
     if (n-x<0 and n-y<0) {
         if (solve(x, y, n-1, false)) {
             return 1;
