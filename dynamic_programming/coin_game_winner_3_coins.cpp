@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 using namespace std;
+
 #define printxyz(arr, rows, cols)                      \
     do {                                               \
         std::cout<<std::endl;                          \
@@ -21,61 +22,53 @@ using namespace std;
         std::cout<<std::endl;                          \
 
 
+// here we thought was we are subtracting by 1 only when it is not subtractable by x and y 
+// in the give question you have three options sub by 1 or by x or by y
 bool solve(int x,int y,int n,bool isA){
-    if (n<0) {
-        return false;
-    }
-    if (n==1 ) {
-        if (isA) {
-            return true;
-        }else{
-            return false;
-        }
-    }
-    if (n-x==0 or n-y==0) {
+
+    if (n==1) {
         if (isA) {
             return true;
         }else {
             return false;
         }
     }
-    bool res1=false;
-    bool res2=false;
-    bool res3=false;
-    if (n-x>0) {
-        res1=solve(x, y, n-x, !isA);
-    }
-    if (n-y>0) {
-        res2=solve(x, y, n-y, !isA);
-    }
-    if (n-x <0 and n-y <0) {
-        res3=solve(x, y, n-1, !isA);
-    }
-    return res1 or res2 or res3;
-}
-int solveProblem(int x,int y,int n){
-    if (n==1 or n-x ==0 or n-y==0) {
-        return 1;
-    }
-    if (n-x<0 and n-y<0) {
-        if (solve(x, y, n-1, false)) {
+    if (n-x<0 and n-y <0) {
+        return solve(x, y, n-1, !isA);
+    }else if (n-x==0 or n-y==0) {
+        if (isA) {
             return 1;
         }else {
             return 0;
         }
+    }else {
+        // what if n-y is greater than 0 and n-x <0
+        return (n-x>0)?solve(x, y , n-x,!isA):0 or (n-y>0)?solve(x, y, n-y,!isA):0;
     }
-    else if (solve(x, y, n-x, false) or solve(x, y, n-y, false)) {
+
+}
+int solveProblem(int x,int y,int n){
+    // first turn is A's 
+    // if n-x is <0 and n-y is <0 then we call for n-1 recursively
+
+    if (n-x<0 and n-y<0) {
+        return solve(x, y, n-1, false);
+    }else if (n-x==0 or n-y==0) {
         return 1;
     }else {
-        return 0;
+        // what if n-y is greater than 0 and n-x <0
+        return (n-x>0)?solve(x, y , n-x,false):0 or (n-y>0)?solve(x, y, n-y,false):0;
     }
 }
 
 
 int main() {
-    int n=2;
-    int x=3;
-    int y=1;
+    // int n=2;
+    // int x=3;
+    // int y=4 ;
+    int n=82;
+    int x=18;
+    int y=40 ;
     // given 5 coins every player can pick 1 or 3 or 4 coins on his or her turn 
     // the game always starts with A 
     // player who is not able to pick any coin loses the game 
