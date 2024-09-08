@@ -22,10 +22,7 @@ using namespace std;
         std::cout<<std::endl;                          \
 
 
-// here we thought was we are subtracting by 1 only when it is not subtractable by x and y 
-// in the give question you have three options sub by 1 or by x or by y
 bool solve(int x,int y,int n,bool isA){
-
     if (n==1) {
         if (isA) {
             return true;
@@ -43,21 +40,19 @@ bool solve(int x,int y,int n,bool isA){
         }
     }else {
         // what if n-y is greater than 0 and n-x <0
-        return (n-x>0)?solve(x, y , n-x,!isA):0 or (n-y>0)?solve(x, y, n-y,!isA):0;
+        return (n-x>0)?solve(x, y , n-x,!isA):0 or (n-y>0)?solve(x, y, n-y,!isA):0 or solve(x, y, n-1, !isA);
     }
-
 }
 int solveProblem(int x,int y,int n){
     // first turn is A's 
     // if n-x is <0 and n-y is <0 then we call for n-1 recursively
-
     if (n-x<0 and n-y<0) {
         return solve(x, y, n-1, false);
     }else if (n-x==0 or n-y==0) {
         return 1;
     }else {
         // what if n-y is greater than 0 and n-x <0
-        return (n-x>0)?solve(x, y , n-x,false):0 or (n-y>0)?solve(x, y, n-y,false):0;
+        return (n-x>0)?solve(x, y , n-x,false):0 or (n-y>0)?solve(x, y, n-y,false):0 or solve(x, y, n-1, false);
     }
 }
 
