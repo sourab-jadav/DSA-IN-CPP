@@ -22,45 +22,24 @@ using namespace std;
         std::cout<<std::endl;                          \
 
 
-int solve(int x,int y,int n,bool isA){
-    if (n==1) {
-        if (isA) {
-            return true;
-        }else {
-            return false;
-        }
-    }
-    if (n==0 ) {
-        if (isA) {
-            return false;
-        }else {
-            return true;
-        }
-    }
-    if (n-x==0 or n-y==0 ) {
-        if (isA) {
-            return true;
-        }else {
-            return false;
-        }
-    }
-    if (n-x==1 or n-y==1) {
-        if (isA) {
-            return false;
-        }else {
-            return true;
-        }
-    }
-    return (n-1>=0)?solve(x, y, n-1, !isA):false or (n-x>=0)?solve(x, y, n-x, !isA):false or (n-y>=0)?solve(x, y, n-y, !isA):false;
-    // main is you can subtract it from 1 or from x or from y
-}
-int solveProblem(int x,int y,int n){
-    bool result=solve(x, y, n, true);
-    if (result) {
-        return 1;
-    }else {
-        return 0;
-    }
+
+bool findWinner(int n,int x, int y ) {
+    // Base cases
+    if (n == 0) // If no coins are left, Player A loses
+        return false;
+    if (n == 1) // If 1 coin is left, Player A wins
+        return true;
+
+    // If any move leads to a position where the opponent loses, Player A wins
+    if (n - 1 >= 0 && !findWinner(n-1,x, y )) // Picking 1 coin
+        return true;
+    if (n - x >= 0 && !findWinner(n - x,x, y )) // Picking x coins
+        return true;
+    if (n - y >= 0 && !findWinner(n - y,x, y)) // Picking y coins
+        return true;
+
+    // If no move can force a win, Player A loses
+    return false;
 }
 
 
@@ -77,20 +56,10 @@ int main() {
     // int n=9;
     // int x=1;
     // int y=8;
-    // given 5 coins every player can pick 1 or 3 or 4 coins on his turn 
-    // the game always starts with A 
-    // player who is not able to pick any coin loses the game 
-    // 
-    // if x or y is not subtractable from the n value then the current chance person reduces the n value by 1 
-    //
-    // in this problem either A can win or else B can win 
-    // if a wins cout << a as the winner 
-    // else if b wins cout <<b as the result 
-    //
-    // the problem starts by a reducing the number by x or y 
-    //
-    // if reducing the n value x gives the result true we declare a as the winner
-    // else we declare b as the winner
-    std::cout<<solveProblem(x, y, n) <<std::endl;
+    std::cout<<findWinner(n,x,y) <<std::endl;
     return 0;
 }
+
+
+
+//  function to determine if Player A will win the game
