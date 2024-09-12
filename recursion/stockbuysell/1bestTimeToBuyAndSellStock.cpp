@@ -86,13 +86,36 @@ int onlyTwoTransactionsAllowed_method2(int arr[],int n){
     }
     return result;
 }
+// k transactions allowed 
+int k_transactions_allowed(int arr[],int start,int end,int k ){
+    // the idea is using the earlier recursion based approach to solve this problem
+    // the base case could be 
+    // if k=0 then no transaction is possible so return 0;
+    if (k==0) {
+        return 0;
+    }
+    int result=0;
+    for(int i=start;i<=end;i++){
+        for(int j=i+1;j<=end;j++){
+            if (arr[j]>arr[i]) {
+                int current_profit=(arr[j]-arr[i])+k_transactions_allowed(arr, j+1, end, k-1)+k_transactions_allowed(arr, start, i-1,  k-1);
+                result=max(result,current_profit);
+            }
+        }
+    }
+    return result;
+}
 // using the statemachine to solve the  problem
 int main() {
     // int arr[]{2,5,13,7,15,18,12,10}; // the idea here is pick every pair i,j where j is > i 
-    int arr[]  {2, 30, 15, 10, 8, 25, 80};
+    // int arr[]  {2, 30, 15, 10, 8, 25, 80}; 
+    int arr[]{ 10, 22, 5, 75, 65, 80}; // expected is 87 but got 97
+    // int arr[]{ 12, 14, 17, 10, 14, 13, 12, 15}; //passed
+    // int arr[]{  100, 30, 15, 10, 8, 25, 80};
+    // int arr[]{90,80,70,60,50};
     int n=sizeof(arr)/sizeof(arr[0]);
     // int result=findBestTimeToBuyStock(arr,0,n-1);
-    int result=onlyTwoTransactionsAllowed_method2(arr, n);
+    int result=k_transactions_allowed(arr,0, n-1,2 );
     std::cout<<result<<std::endl;
     return 0;
 }
