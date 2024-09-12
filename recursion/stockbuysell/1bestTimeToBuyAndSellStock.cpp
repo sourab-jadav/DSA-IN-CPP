@@ -88,7 +88,8 @@ int onlyTwoTransactionsAllowed_method2(int arr[],int n){
 }
 // using the statemachine to solve the  problem
 int main() {
-    int arr[]{2,5,13,7,15,18,12,10}; // the idea here is pick every pair i,j where j is > i 
+    // int arr[]{2,5,13,7,15,18,12,10}; // the idea here is pick every pair i,j where j is > i 
+    int arr[]  {2, 30, 15, 10, 8, 25, 80};
     int n=sizeof(arr)/sizeof(arr[0]);
     // int result=findBestTimeToBuyStock(arr,0,n-1);
     int result=onlyTwoTransactionsAllowed_method2(arr, n);
