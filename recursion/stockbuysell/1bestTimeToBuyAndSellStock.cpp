@@ -21,7 +21,7 @@ int findBestTimeToBuyStock(int arr[],int start,int end){
     }
     return profit;
 }
-// only one transaction is allowed here
+// atmost one transaction is allowed here
 int onlyOneTransactionAllowed(int arr[],int start,int end){
     int current_min=arr[start];
     int result=0;
@@ -34,7 +34,7 @@ int onlyOneTransactionAllowed(int arr[],int start,int end){
     }
     return result;
 }
-// only two transactions allowed
+// atmost two transactions allowed
 int onlyTwoTransactionsAllowed(int arr[],int n){
     int current_min=INT_MAX;
     int result=0;
@@ -86,7 +86,7 @@ int onlyTwoTransactionsAllowed_method2(int arr[],int n){
     }
     return result;
 }
-// k transactions allowed 
+// atmost k transactions allowed 
 int k_transactions_allowed(int arr[],int start,int end,int k,int n ){
     // the idea is using the earlier recursion based approach to solve this problem
     // the base case could be 
