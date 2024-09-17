@@ -124,8 +124,8 @@ int statemachine_method(int arr[],int i,int n,bool bought,int fee){
         return max(opt1,opt2);
     }else {
         // now we had bought previously now
-        int opt1=arr[i]+statemachine_method(arr, i+1, n, true, fee);
-        int opt2=statemachine_method(arr, i+1, n, false, fee);
+        int opt1=arr[i]+statemachine_method(arr, i+1, n, false, fee);
+        int opt2=statemachine_method(arr, i+1, n, true, fee);
         return max(opt1,opt2);
     }
 
