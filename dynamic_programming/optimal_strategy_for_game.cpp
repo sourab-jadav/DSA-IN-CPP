@@ -56,14 +56,13 @@ using namespace std;
 //         return arr[end]+max_value(arr, start, end-1,n);
 //     }
 //     return 0;
-//
 // }
-long long  max_value(int arr[],int start,int end,int n,bool isme){
+long long  max_value(int arr[],int start,int end,int n,bool isA){
     if (start==n || end <0) {
         return 0;
     }
     if (start==end) {
-        if (isme) {
+        if (isA) {
             return arr[start];
         }else {
             return 0;
@@ -71,20 +70,21 @@ long long  max_value(int arr[],int start,int end,int n,bool isme){
     }
     long long  result1=0;
     long long result2=0;
-    long long isme_result=0;
-    if (isme) {
+    long long isA_result=0;
+    if (isA) {
             result1=(arr[start]+max_value(arr, start+1, end, n,false));
             result2=arr[end]+max_value(arr, start, end-1, n,false);
-            isme_result=max(result1,result2);
+            isA_result=max(result1,result2);
     }else {
-        if (arr[start]>arr[end]) { // this if else logic is not correct and got failed for some input stl/fileInput.txt
-                                   // here you have not handled the case of B is playing as smartly as A very well
-            return max_value(arr, start+1, end, n, true);
-        }else {
-            return max_value(arr, start, end-1, n, true);
-        }
+        // if (arr[start]>arr[end]) { // this if else logic is not correct and got failed for some input stl/fileInput.txt
+        //                            // all though below mentioned tc's passed. here you have not handled the case of B is playing as
+        //                            // smartly as A very well
+        //     return max_value(arr, start+1, end, n, true);
+        // }else {
+        //     return max_value(arr, start, end-1, n, true);
+        // }
     }
-    return isme_result;
+    return isA_result;
 }
 int main() {
     int arr[]{8,15,3,7}; // passed
