@@ -78,6 +78,7 @@ long long  max_value(int arr[],int start,int end,int n,bool isme){
             isme_result=max(result1,result2);
     }else {
         if (arr[start]>arr[end]) { // this if else logic is not correct and got failed for some input stl/fileInput.txt
+                                   // here you have not handled the case of B is playing as smartly as A very well
             return max_value(arr, start+1, end, n, true);
         }else {
             return max_value(arr, start, end-1, n, true);
