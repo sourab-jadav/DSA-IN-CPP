@@ -40,7 +40,7 @@ using namespace std;
 //                                                                                                // all the elements
 //                                                                                                // max(25,25);
 // }
-int max_value(int arr[],int start,int end,int n){
+int max_value(int arr[],int start,int end,int n){ // not working 
     if (start==n || end<0) {
         return 0;
     }
