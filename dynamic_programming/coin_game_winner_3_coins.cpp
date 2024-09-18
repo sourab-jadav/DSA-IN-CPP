@@ -23,7 +23,7 @@ using namespace std;
 
 // this solution works as well 
 // the lesson is in the if condition 
-// avoid using or operator 
+// avoid using or keyword 
 // the function is checking for a path which leads to winning of A
 int solve(int x,int y,int n,bool isA){
     if (n==0) {
