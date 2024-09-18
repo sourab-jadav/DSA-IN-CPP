@@ -58,7 +58,7 @@ using namespace std;
 //     return 0;
 //
 // }
-int max_value(int arr[],int start,int end,int n,bool isme){
+long long  max_value(int arr[],int start,int end,int n,bool isme){
     if (start==n || end <0) {
         return 0;
     }
@@ -69,28 +69,27 @@ int max_value(int arr[],int start,int end,int n,bool isme){
             return 0;
         }
     }
-    int result1=0;
-    int result2=0;
-    int isme_result=0;
+    long long  result1=0;
+    long long result2=0;
+    long long isme_result=0;
     if (isme) {
             result1=(arr[start]+max_value(arr, start+1, end, n,false));
             result2=arr[end]+max_value(arr, start, end-1, n,false);
             isme_result=max(result1,result2);
     }else {
-        if (arr[start]>arr[end]) {
+        if (arr[start]>arr[end]) { // this if else logic is not correct and got failed for some input stl/fileInput.txt
             return max_value(arr, start+1, end, n, true);
         }else {
             return max_value(arr, start, end-1, n, true);
         }
     }
     return isme_result;
-    
 }
 int main() {
-    // int arr[]{8,15,3,7}; // passed
+    int arr[]{8,15,3,7}; // passed
     // int arr[]{5,3,7,10};// passed
     // int arr[]{20,30,2,2,2,10};// passed
-    int arr[]{2,2,2,2}; // passed
+    // int arr[]{2,2,2,2}; // passed
     int n=sizeof(arr)/sizeof(arr[0]);
     int result=max_value(arr,0,n-1,n,true);
     std::cout<<result<<std::endl;
