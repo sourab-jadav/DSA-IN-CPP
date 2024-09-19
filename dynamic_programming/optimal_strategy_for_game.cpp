@@ -76,19 +76,26 @@ long long  max_value(int arr[],int start,int end,int n,bool isA){
             result2=arr[end]+max_value(arr, start, end-1, n,false);
             isA_result=max(result1,result2);
     }else {
-        // if (arr[start]>arr[end]) { // this if else logic is not correct and got failed for some input stl/fileInput.txt
-        //                            // all though below mentioned tc's passed. here you have not handled the case of B is playing as
-        //                            // smartly as A very well
-        //     return max_value(arr, start+1, end, n, true);
-        // }else {
-        //     return max_value(arr, start, end-1, n, true);
-        // }
+        if (arr[start]>arr[end]) { // this if else logic is not correct and got failed for some input stl/fileInput.txt
+                                   // all though below mentioned tc's passed. here you have not handled the case of B 
+                                         // is playing as smartly as A,very well
+            return max_value(arr, start+1, end, n, true);
+        }else {
+            return max_value(arr, start, end-1, n, true);
+        }
     }
     return isA_result;
 }
+
+
+
+
+
 int main() {
-    int arr[]{8,15,3,7}; // passed
-    // int arr[]{5,3,7,10};// passed
+//     int arr[]{
+// 5182,4596,4284,3795,6756,5167,5484,634,9364,137,776,7467,9023,4808,9384,5803,2573,9776,882,3018,7742,8307,7963,4387,9402,2827,5742,5685,4144,3668,8156,4452,9808,4571,1296,2437,6246,8771,8950,8695,8126,9865,9954,5347,3211,3067,5645,7663,6679,2691,2796
+// }; // failed
+    int arr[]{5,3,7,10};// passed
     // int arr[]{20,30,2,2,2,10};// passed
     // int arr[]{2,2,2,2}; // passed
     int n=sizeof(arr)/sizeof(arr[0]);
