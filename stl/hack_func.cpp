@@ -75,41 +75,72 @@ struct Person {
 // 64. max_element
 // 65. minmax_element
 //  
-int main() {
-    // sort function
-    //  Let's start with the sort function
-    // 1. sort
-    // sort function is used to sort the elements of a container in ascending order
-    // it takes two iterators as arguments, the first iterator points to the first element of the container and the second iterator points to the last element of the container
-    // the sort function uses the quicksort algorithm to sort the elements
-    // the time complexity of the sort function is O(nlogn)
-    // the space complexity of the sort function is O(logn)
-    // the sort function is present in the algorithm library
-    // the sort function is a stable sort
-    // the sort function is a comparison sort
-    // the sort function is a non-adaptive sort
-    // the sort function is a non-recursive sort
-    // the sort function is a comparison sort
-    // example:
-    int arr[] = {3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5};
-    vector<vector<int>>vec{{1,3},{2,5},{7,1}};
-    sort(vec.begin(),vec.end(),[](vector<int>&a,vector<int>&b){
-            return a[1]<b[1];
-            });
-    for (auto x : vec) {
-        std::cout<<x[0]<<" "<<x[1]<<std::endl;
-    }
-    std::cout<<std::endl;
-    int n = sizeof(arr) / sizeof(arr[0]);
-    // sort(arr, arr + n, greater<int>());
-    sort(arr, arr + n);
-        
-    // sorting with the lambda function
-    sort(arr, arr + n, [](int a, int b) {
-       return a > b;
-       });
-    vector<Person> people {{ "John", 23 }, { "Paul", 25 }, { "Ringo", 22 }, { "George", 21 }};
-    return 0;
-}
+// int main() {
+//     // sort function
+//     //  Let's start with the sort function
+//     // 1. sort
+//     // sort function is used to sort the elements of a container in ascending order
+//     // it takes two iterators as arguments, the first iterator points to the first element of the container and the second iterator points to the last element of the container
+//     // the sort function uses the quicksort algorithm to sort the elements
+//     // the time complexity of the sort function is O(nlogn)
+//     // the space complexity of the sort function is O(logn)
+//     // the sort function is present in the algorithm library
+//     // the sort function is a stable sort
+//     // the sort function is a comparison sort
+//     // the sort function is a non-adaptive sort
+//     // the sort function is a non-recursive sort
+//     // the sort function is a comparison sort
+//     // example:
+//     int arr[] = {3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5};
+//     vector<vector<int>>vec{{1,3},{2,5},{7,1}};
+//     sort(vec.begin(),vec.end(),[](vector<int>&a,vector<int>&b){
+//             return a[1]<b[1];
+//             });
+//     for (auto x : vec) {
+//         std::cout<<x[0]<<" "<<x[1]<<std::endl;
+//     }
+//     std::cout<<std::endl;
+//     int n = sizeof(arr) / sizeof(arr[0]);
+//     // sort(arr, arr + n, greater<int>());
+//     sort(arr, arr + n);
+//         
+//     // sorting with the lambda function
+//     sort(arr, arr + n, [](int a, int b) {
+//        return a > b;
+//        });
+//     vector<Person> people {{ "John", 23 }, { "Paul", 25 }, { "Ringo", 22 }, { "George", 21 }};
+//     return 0;
+// }
 
+// int keys[] = {10, 20, 12,5}; 
+// int freq[] = {34, 8, 50,8}; 
+// say this is keys array and freq array 
+// you have to sort keys array and rearrange the freq array accordingly
+// 
+// one easy way is you can make use makepair and pairs
 
+// int main(){
+//     int keys[] = {10, 20, 12,5};
+//     int freq[] = {34, 8, 50,8};
+//     int n = sizeof(keys) / sizeof(keys[0]);
+//     std::vector<std::pair<int,int>>vec;
+//     for(int i=0;i<n;i++){
+//         vec.push_back({keys[i],freq[i]});
+//     }
+//     sort(vec.begin(),vec.end());
+//     // or u can use makepair
+//     // for(int i=0;i<n;i++){
+//     //    vec.push_back(make_pair(keys[i],freq[i]));
+//     //    }
+//     //    sort(vec.begin(),vec.end());
+//     // now putting back into the array
+//     for(int i=0;i<n;i++){
+//         keys[i]=vec[i].first;
+//         freq[i]=vec[i].second;
+//     }
+//     // displaying the array
+//
+//     for(int i=0;i<n;i++){
+//         std::cout<<keys[i]<<" "<<freq[i]<<std::endl;
+//     }
+// }
