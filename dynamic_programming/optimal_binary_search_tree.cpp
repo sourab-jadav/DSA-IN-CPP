@@ -111,22 +111,3 @@ int main() {
     std::cout<<optCost(freq, n)<<std::endl;
     return 0;
 }
-// 
-// tabulizing the approach 
-// for tabulizing 
-// first filling the base values
-//
-// now for a given i j value 
-// for this we can write a loop 
-// for(int i=0;i<n;i++){
-//      for(int j=i+1;j<n;j++){
-//
-//      }
-// } // this way j will always be greater than i
-//
-// moving on to the next part 
-// we are running another loop inside the j 
-// int current_cost=INT_MAX;
-// for(int r=i;r<=j;r++){
-//      int cost=table[i][r-1]+table[r+1][j];
-// }
