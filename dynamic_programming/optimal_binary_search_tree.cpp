@@ -1,4 +1,6 @@
+#include <algorithm>
 #include <climits>
+#include <cstdlib>
 #include <cstring>
 #include <iostream>
 #include <vector>
@@ -68,22 +70,36 @@ int optCost(int freq[],int n){ // not working
     memset(cost, 0, sizeof(cost));
     for(int i=0;i<n;i++){
         cost[i][i]=freq[i];
-    } // done with the base values
-    for(int gap=0;gap<n;gap++){
-        for(int i=0,j=gap+1;j<n-1;i++,j++){
-            int min=INT_MAX;
+    } // done with the base values i.e gap=0
+      // dynamic_programming/optimal_strategy_for_game.cpp // tabulation reference
+    // for(int gap=1;gap<n;gap++){ // working approach
+    //     for(int i=0,j=gap;j<n;i++,j++){
+    //         cost[i][j]=INT_MAX;
+    //         int offset_sum=sumthis(freq, i, j);
+    //         for(int r=i;r<=j;r++){
+    //             int x=(r-1>=0)?cost[i][r-1]:0;
+    //             int y=(r+1<n)?cost[r+1][j]:0;
+    //             cost[i][j]=min(cost[i][j],x+y+offset_sum);
+    //         }
+    //     }
+    // }
+    // or you can also use concept of length
+    // i.e solving the all the subproblems of len 2,3 and so on
+
+    for(int l=2;l<=n;l++){ 
+        for(int i=0;i<=n-l+1;i++){
+            int j=i+l-1;
+            // we have our i and j set 
+            cost[i][j]=INT_MAX;
             int offset_sum=sumthis(freq, i, j);
             for(int r=i;r<=j;r++){
-                int c=((r>i)?cost[i][r-1]:0)+
-                      ((r<j)?cost[r+1][j]:0);
-                if (c<min) {
-                    min=c;
-                }
+                int x=(r>i)?cost[i][r-1]:0; // here (r>i) is more intuitive than using (r-1>=0) as used above
+                int y=(r<j)?cost[r+1][j]:0;
+                cost[i][j]=min(cost[i][j],x+y+offset_sum);
             }
-            cost[i][j]=min+offset_sum;
         }
     }
-    printxyz(cost, n, n);
+
     return cost[0][n-1];
 }
 int main() {
