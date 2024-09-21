@@ -5,6 +5,24 @@
 #include <string>
 #include <vector>
 using namespace std;
+#define printxyz(arr, rows, cols)                      \
+    do {                                               \
+        std::cout<<std::endl;                          \
+        for (int i = 0; i < rows; ++i) {               \
+            for (int j = 0; j < cols; ++j) {           \
+                std::cout << arr[i][j] << " ";         \
+            }                                          \
+            std::cout << std::endl;                    \
+        }                                              \
+        std::cout<<std::endl;                          \
+    } while (0)
+#define printarray(arr, n)                             \
+        std::cout<<std::endl;                          \
+        for (int i = 0; i < n; ++i) {                  \
+            std::cout<<arr[i]<<" ";                    \
+        }                                              \
+        std::cout<<std::endl;                          \
+
 std::vector<std::string>result;
 void printPermute(std::string str,int i){
     if(i==str.length()){
@@ -67,17 +85,26 @@ int solvedp(string str){ // dp not worked
     for(int gap=1;gap<n;gap++){
         for(int i=0,j=gap;j<n;i++,j++){
             // we have our i and j
-            if (i+1==j) {
-                count[i][j]=0;
+            if (i+1==j) { // handled the case of subproblems in which two strings are involved
+                if (str[i]==str[j]) {
+                    count[i][j]=0;
+                }else {
+                    count[i][j]=1;
+                }
             }else {
-                count[i][j]=INT_MAX;
-                for(int r=i;r<j;r++){
-                    int x=(r<i)?count[r+1][i]:0;
-                    count[i][j]=min(count[i][j],count[i][r]+x+1);
+                if (str[i]==str[j]) {
+                    count[i][j]=(i+1<n)?count[i+1][j-1]:0;
+                }else {
+                    count[i][j]=INT_MAX;
+                    for(int r=i;r<=j;r++){
+                        count[i][j]=min(count[i][j],count[i][r]+count[r+1][j]+1);
+                    }
                 }
             }
         }
     }
+    printxyz(count, n, n);
+
     return count[0][n-1];
 }
 int main() {
@@ -104,4 +131,5 @@ int main() {
     // int result2=minPalPartion(str, 0, str.length()-1);
     // std::cout<<result2<<std::endl;
 
+    std::cout<<solvedp(str)<<std::endl;
 }
