@@ -80,31 +80,31 @@ int solvedp(string str){ // dp not worked
     int n=str.length();
     // now can we approach the problem 
     int count[n][n];
+    bool pal[n][n];
     memset(count, 0, sizeof(count));
     // palindrome of length one
     for(int gap=1;gap<n;gap++){
         for(int i=0,j=gap;j<n;i++,j++){
-            // we have our i and j
-            if (i+1==j) { // handled the case of subproblems in which two strings are involved
-                if (str[i]==str[j]) {
-                    count[i][j]=0;
-                }else {
-                    count[i][j]=1;
-                }
+            // we have i and j set here
+
+            // now check if it is a palindrome or not
+            if (j-i+1==2) {
+                //  check palindrome of length 2 
+                pal[i][j]=str[i]==str[j];
             }else {
-                if (str[i]==str[j]) {
-                    count[i][j]=(i+1<n)?count[i+1][j-1]:0;
-                }else {
-                    count[i][j]=INT_MAX;
-                    for(int r=i;r<=j;r++){
-                        count[i][j]=min(count[i][j],count[i][r]+count[r+1][j]+1);
-                    }
+                pal[i][j]=(str[i]==str[j]) && pal[i+1][j-1];
+            }
+
+            if (pal[i][j]) {
+                count[i][j]=0;
+            }else {
+                count[i][j]=INT_MAX;
+                for(int r=i;r<j;r++){
+                    count[i][j]=min(count[i][j],count[i][r]+count[r+1][j]+1);
                 }
             }
         }
     }
-    printxyz(count, n, n);
-
     return count[0][n-1];
 }
 int main() {
