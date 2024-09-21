@@ -81,7 +81,11 @@ int solvedp(string str){ // dp not worked
     // now can we approach the problem 
     int count[n][n];
     bool pal[n][n];
+    memset(pal, false, sizeof(pal));
     memset(count, 0, sizeof(count));
+    for(int i=0;i<n;i++){
+        pal[i][i]=true;
+    }
     // palindrome of length one
     for(int gap=1;gap<n;gap++){
         for(int i=0,j=gap;j<n;i++,j++){
@@ -126,10 +130,10 @@ int main() {
     // // printPermute(str, 0);
     //
 
-    std::string str="ababbbabbababa";
+    // std::string str="ababbbabbababa";
+    string str="ababbbabbababa";
     // int result=palindromic_partitioning(str, 0, str.length()-1);
     // int result2=minPalPartion(str, 0, str.length()-1);
     // std::cout<<result2<<std::endl;
-
     std::cout<<solvedp(str)<<std::endl;
 }
