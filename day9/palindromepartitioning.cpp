@@ -1,5 +1,6 @@
 #include <algorithm>
 #include <climits>
+#include <cstring>
 #include <iostream>
 #include <string>
 #include <vector>
@@ -49,30 +50,35 @@ int palindromic_partitioning(string str,int start,int end){ // core dumped
     }
     int result=INT_MAX;
     int current=0;
-    for(int i=start;i<=end;i++){ // here = is the reason for code dumped
+    for(int i=start;i<end;i++){
         current=palindromic_partitioning(str, start, i)+palindromic_partitioning(str, i+1, end)+1;
         result=min(result,current);
     }
     return result;
 }
-int minPalPartion(string String, int i, int j)
-{
-    // Base case: If the substring is empty or a palindrome,
-    // no cuts needed
-    if (i >= j || ispalindrome(String, i, j))
-        return 0;
- 
-    int ans = INT_MAX, count;
- 
-    // Iterate through all possible partitions and find the
-    // minimum cuts needed
-    for (int k = i; k < j; k++) {
-        count = minPalPartion(String, i, k)
-                + minPalPartion(String, k + 1, j) + 1;
-        ans = min(ans, count);
+// since recursion is involved in the above problem can we apply dynamic programming inorder to solve the problem
+// yes we can
+int solvedp(string str){ // dp not worked
+    int n=str.length();
+    // now can we approach the problem 
+    int count[n][n];
+    memset(count, 0, sizeof(count));
+    // palindrome of length one
+    for(int gap=1;gap<n;gap++){
+        for(int i=0,j=gap;j<n;i++,j++){
+            // we have our i and j
+            if (i+1==j) {
+                count[i][j]=0;
+            }else {
+                count[i][j]=INT_MAX;
+                for(int r=i;r<j;r++){
+                    int x=(r<i)?count[r+1][i]:0;
+                    count[i][j]=min(count[i][j],count[i][r]+x+1);
+                }
+            }
+        }
     }
- 
-    return ans;
+    return count[0][n-1];
 }
 int main() {
     // std::string str="abcdaabd";
@@ -94,9 +100,8 @@ int main() {
     //
 
     std::string str="ababbbabbababa";
-    int result=palindromic_partitioning(str, 0, str.length()-1);
+    // int result=palindromic_partitioning(str, 0, str.length()-1);
     // int result2=minPalPartion(str, 0, str.length()-1);
     // std::cout<<result2<<std::endl;
-    std::cout<<result<<std::endl;
 
 }
