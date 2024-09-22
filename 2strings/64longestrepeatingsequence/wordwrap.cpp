@@ -43,6 +43,7 @@ int solveWordWrapUtil(int words[], int n, int length, int wordIndex, int remLeng
     }
     int currWord = words[wordIndex];
     // if word can fit in the remaining line
+    // we are playing with remaining length here
     if (currWord < remLength) {
         // two cases here:
         // if it is the first word of the line i.e remaininglength==k then we just decrease the size of the line by current word size
