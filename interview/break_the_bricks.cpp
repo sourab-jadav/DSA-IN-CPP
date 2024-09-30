@@ -86,6 +86,14 @@ vector<vector<int>> solve_m2(int bighits,int newtons[],int n){
     // now we have the elements
     return result;
 }
+// using make_heap and modifying the original array
+int solve_m3(int bighits,int newtons[],int n){
+    make_heap(newtons,newtons+n);  // it does the same thing
+    for(int i=0;i<bighits;i++){
+        pop_heap(newtons,newtons+n-i);
+    }
+    // ....
+}
 int main() {
     int bighits=4;
     int newtons[]{3,2,5,4,6,7,9};
