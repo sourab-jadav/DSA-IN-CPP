@@ -21,6 +21,7 @@ using namespace std;
         std::cout<<std::endl;                          \
 
 
+// https://www.notion.so/ibm-111bd12954e18068af2be8db9aa5fd18
 vector<vector<int>> solve(int bighits,int newtons[],int n){
     unordered_map<int, int>mp;
     for(int i=0;i<n;i++){
