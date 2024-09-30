@@ -1,5 +1,6 @@
 #include <algorithm>
 #include <bits/stdc++.h>
+#include <vector>
 using namespace std;
 
 int solveWordWrapUsingMemo(int words[], int n, int length, int wordIndex, int remLength, vector<vector<int>> memo);
@@ -32,7 +33,9 @@ int main() {
     int words[] = {3, 2, 2, 5};
     int n = sizeof(words) / sizeof(words[0]);
     int k = 6;
-    cout << solveWordWrap(words, n, k);
+    // cout << solveWordWrap(words, n, k);
+    vector<vector<int>>memo(n,vector<int>(k+1,-1));
+    std::cout<<solveWordWrapUtil(words, n, k, 0, k, memo)<<std::endl;
     return 0;
 }
 /* This Code is contributed by Tapesh (tapeshdua421) */
