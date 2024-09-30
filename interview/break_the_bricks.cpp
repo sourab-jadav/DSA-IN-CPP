@@ -1,6 +1,9 @@
 #include <algorithm>
+#include <functional>
 #include <iostream>
+#include <queue>
 #include <unordered_map>
+#include <utility>
 #include <vector>
 #include <string>
 using namespace std;
@@ -53,16 +56,49 @@ vector<vector<int>> solve(int bighits,int newtons[],int n){
     result.push_back(b_hits);
     return result;
 }
+// solution using min heap 
+vector<vector<int>> solve_m2(int bighits,int newtons[],int n){
+    // the problem is to 
+    // take the big hits 
+    priority_queue<pair<int, int>,vector<pair<int, int>>,greater<>>pq_big;
+    vector<int>small;
+    vector<int>big;
+    vector<vector<int>>result;
+    int sum=0;
+    
+    int max_size=bighits;
+    for(int i=0;i<n;i++){
+        pq_big.push(make_pair(newtons[i], i+1));
+        if (pq_big.size()==max_size+1) {
+            small.push_back(pq_big.top().second);
+            sum+=pq_big.top().first;
+            pq_big.pop();
+        }
+    }
+    while (!pq_big.empty()) {
+        big.push_back(pq_big.top().second);
+        pq_big.pop();
+    }
+    sum+=big.size();
+    result.push_back(vector<int>{sum});
+    result.push_back(small);
+    result.push_back(big);
+    // now we have the elements
+    return result;
+}
 int main() {
     int bighits=4;
     int newtons[]{3,2,5,4,6,7,9};
     int n=sizeof(newtons)/sizeof(newtons[0]);
-    vector<vector<int>>result=solve(bighits,newtons,n);
+    vector<vector<int>>result=solve_m2(bighits,newtons,n);
     for (auto it : result) {
         for (auto el : it) {
             std::cout<<el<<" ";
         }
         std::cout<<std::endl;
     }
+
+    solve_m2(bighits, newtons, n);
+
     return 0;
 }
