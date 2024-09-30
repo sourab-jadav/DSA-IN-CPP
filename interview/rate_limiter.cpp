@@ -26,6 +26,7 @@ using namespace std;
 // the gateway allows atmost(<=) 2 request from a domain within 5 seconds
 // and atmost 5 request within 30 seconds
 int solve(string request[],int n,unordered_map<string, int>&mp){
+    unordered_map<string, int>mp2;
     for(int i=0;i<n;i++){
         if (i<5) {
             if (mp[request[i]]<2) {
@@ -34,6 +35,7 @@ int solve(string request[],int n,unordered_map<string, int>&mp){
             }else {
                 std::cout<<"status:429,message: Too many request"<<std::endl;
             }
+            mp2[request[i]]++;
         }else if (i<30) {
             mp[request[i-5]]--;
             if (mp[request[i]]<2) {
@@ -42,10 +44,11 @@ int solve(string request[],int n,unordered_map<string, int>&mp){
             }else {
                 std::cout<<"status:429,message: Too many request"<<std::endl;
             }
+            mp2[request[i]]++;
         }else {
-            mp[request[i-30]]--;
-            if (mp[request[i]]<5) {
-                mp[request[i]]++;
+            mp2[request[i-30]]--;
+            if (mp2[request[i]]<5) {
+                mp2[request[i]]++;
                 std::cout<<"status:200,message: OK"<<std::endl;
             }else {
                 std::cout<<"status:429,message: Too many request"<<std::endl;
