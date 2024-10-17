@@ -34,6 +34,7 @@ int main() {
     string output="";
     // the idea is take the max possible 1 followed by n zeroes that can fit as a number in a datatype
     // 
+    
     while (n!=0) {
         if (n/x!=0) {
             std::cout<<n%x<<std::endl;
@@ -48,5 +49,11 @@ int main() {
         x/=10;
     }
     std::cout<<output<<std::endl;
+    // the other way could be 
+    // convert the number to string 
+    // take each character at a time starting from 0 
+    // each time you append the character to the result string also append that many zeroes to the string as 
+    // the number of characters that are there from next to that index to n-1
+
     return 0;
 }
