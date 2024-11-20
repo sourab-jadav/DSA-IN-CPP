@@ -22,7 +22,7 @@ using namespace std;
             std::cout<<arr[i]<<" ";                    \
         }                                              \
         std::cout<<std::endl;                          \
-
+// gfg solution!!https://www.geeksforgeeks.org/minimum-steps-reach-target-knight/
 // here the night is moving from one point to the another point
 // is feasable function is required here
 // is feasable checks for a given coardinate is possible or not
