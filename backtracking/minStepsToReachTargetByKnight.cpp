@@ -33,7 +33,8 @@ bool isFeasable(int x,int y,int N){
 }
 int recursive_sol(int kX,int kY,int tX,int tY,int dx[],int dy[],int N){
     if (kX==tX && kY==tY) {
-        return 1;
+        // return 1; // problem here as it counts reaching the target as a single move
+        return 0;
     }
     int next_x;
     int next_y;
@@ -41,8 +42,10 @@ int recursive_sol(int kX,int kY,int tX,int tY,int dx[],int dy[],int N){
     for(int i=0;i<N;i++){ // the recursive call inside the this loop does not correctly  handle the visited states
         next_x=kX+dx[i];
         next_y=kY+dy[i];
-        if (isFeasable(next_x, next_y,  N) && recursive_sol(next_x, next_y, tX,tY,dx, dy, N)) {
-            // the problem here is due to the base case here at line 46 extra 1 is coming 
+        if (isFeasable(next_x, next_y,  N) && recursive_sol(next_x, next_y, tX,tY,dx, dy, N)) { // calling the recursive 
+                                                                                                // call twice leading to 
+                                                                                                // redundant calculations
+        // this algorithm lacks the mechanism to prevent revisiting the same cell
             result=min(result,1+recursive_sol(next_x, next_y, tX, tY, dx, dy, N));
         }
     }
