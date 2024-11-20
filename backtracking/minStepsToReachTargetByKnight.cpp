@@ -1,7 +1,9 @@
 #include <algorithm>
 #include <climits>
+#include <cmath>
 #include <cstring>
 #include <iostream>
+#include <queue>
 #include <vector>
 #include <string>
 using namespace std;
@@ -31,35 +33,51 @@ bool isFeasable(int x,int y,int N){
         return false;
     }
 }
-int recursive_sol(int kX,int kY,int tX,int tY,int dx[],int dy[],int N){
-    if (kX==tX && kY==tY) {
-        // return 1; // problem here as it counts reaching the target as a single move
-        return 0;
+struct cell{
+    int x,y;
+    int dis;
+    cell(){}
+    cell(int x,int y,int dis):x(x),y(y),dis(dis){
+
     }
-    int next_x;
-    int next_y;
-    int result=INT_MAX;
-    for(int i=0;i<N;i++){ // the recursive call inside the this loop does not correctly  handle the visited states
-        next_x=kX+dx[i];
-        next_y=kY+dy[i];
-        if (isFeasable(next_x, next_y,  N) && recursive_sol(next_x, next_y, tX,tY,dx, dy, N)) { // calling the recursive 
-                                                                                                // call twice leading to 
-                                                                                                // redundant calculations
-        // this algorithm lacks the mechanism to prevent revisiting the same cell
-            result=min(result,1+recursive_sol(next_x, next_y, tX, tY, dx, dy, N));
+};
+int solve(int kpos[],int tpos[],int N){
+    int dx[] = { -2, -1, 1, 2, -2, -1, 1, 2 };
+    int dy[] = { -1, -2, -2, -1, 1, 2, 2, 1 };
+    // we will be solving this problem by using bfs
+    // traversing through all the possible ways
+    queue<cell>q;
+    cell t;
+    int x,y;
+    bool visit[N][N];
+    memset(visit, false, sizeof(visit));
+    q.push(cell(kpos[0],kpos[1],0));
+    visit[kpos[0]][kpos[1]]=true;
+    while (!q.empty()) {
+        t=q.front();
+        q.pop();
+        if (t.x==tpos[0] && t.y==tpos[1]) {
+            return t.dis;
         }
+
+        for(int i=0;i<8;i++){
+            x=t.x+dx[i];
+            y=t.y+dy[i];
+            // now you have to see if it is reachable from here or not 
+            // if it is already reached then we don't consider that path
+
+            if (isFeasable(x, y, N) && !visit[x][y]) {
+                visit[x][y]=true;
+                q.push(cell(x,y,t.dis+1));
+            }
+        }
+        
     }
-    if (result!=INT_MAX) {
-        return result;
-    }else {
-        return 0;
-    }
+    return -1;
 }
 
 int calculateSteps(int knightPos[],int targetPos[],int N){
-    int dx[] = { -2, -1, 1, 2, -2, -1, 1, 2 };
-    int dy[] = { -1, -2, -2, -1, 1, 2, 2, 1 };
-    return recursive_sol(knightPos[0], knightPos[1], targetPos[0], targetPos[1], dx, dy, N);
+    return solve(knightPos,targetPos,N);
 }
 
 
