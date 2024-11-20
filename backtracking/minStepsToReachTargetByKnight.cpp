@@ -42,6 +42,7 @@ int recursive_sol(int kX,int kY,int tX,int tY,int dx[],int dy[],int N){
         next_x=kX+dx[i];
         next_y=kY+dy[i];
         if (isFeasable(next_x, next_y,  N) && recursive_sol(next_x, next_y, tX,tY,dx, dy, N)) {
+            // the problem here is due to the base case here at line 46 extra 1 is coming 
             result=min(result,1+recursive_sol(next_x, next_y, tX, tY, dx, dy, N));
         }
     }
@@ -55,11 +56,6 @@ int recursive_sol(int kX,int kY,int tX,int tY,int dx[],int dy[],int N){
 int calculateSteps(int knightPos[],int targetPos[],int N){
     int dx[] = { -2, -1, 1, 2, -2, -1, 1, 2 };
     int dy[] = { -1, -2, -2, -1, 1, 2, 2, 1 };
-
-
-
-
-
 }
 
 
