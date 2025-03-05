@@ -1,0 +1,923 @@
+   15  git status
+   16  git commit -am "add wallpaper setting"
+   17  git push
+   28  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf\n~/.fzf/install
+   46  git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+   48  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+   71  git clone https://github.com/agkozak/zsh-z ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-z
+  208  fzf_git_repos
+  222  fzf_git_repos
+  231  fzf_git_repos
+  233  fzf_git_repos
+  238  fzf_git_repos
+  253  git status
+  256  fzf_git_repos
+  263  git checkout $(git branch | fzf)
+  264  git log --oneline | fzf
+  265  # This command will show a list of commits in fzf, and output the selected commit hash\ngit log --oneline | fzf | awk '{print $1}'
+  297  fzf_git_repos
+  301  fzf_git_repos
+  343  fzf_git_repos
+  347  fzf_git_repos
+  350  fzf_git_repos
+  353  fzf_git_repos
+  361  git log --oneline | fzf | awk '{print $1}'
+  362  git log --oneline | fzf --print-query | awk 'NR==2 {print $1}' | xclip -selection clipboard\n
+  382  # Select a commit hash and copy it to the clipboard\ngit log --oneline | fzf --print-query | awk 'NR==2 {print $1}' | xclip -selection clipboard\n
+  393  git branch -a
+  394  git log --oneline | fzf --print-query | awk 'NR==2 {print $1}' | xclip -selection clipboard\n
+  401  fzf_git_repos
+  409  fzf_git_repos
+  420  fzf_git_repos
+  529  git-shell
+  605  alias | grep "git "| less
+  675  git clone git@autocode.git.epam.com:sourabhjadav7/meet-an-agent-exercise-v2.git
+  683  alias | grep "git "| less
+  684  git commit -am "final 1"
+  685  git push
+  693  git commit -am "final 1"
+  694  git push
+  695  git commit -am "final 1"
+  696  git push
+  698  git clone git@autocode.git.epam.com:sourabhjadav7/spiral-exercise.git
+  701  git status
+  702  git commit -am "final 1"
+  703  git push
+  704  git status
+  705  git commit -am "final 1"
+  706  git push
+  707  git commit -am "final 1"
+  708  git push
+  709  git commit -am "final 2"
+  710  git push
+  740  git commit -am "final 2"
+  741  git push
+  748  git status
+  749  git add binaryTree 
+  750  git status
+  751  git commit -am "printing root to leaf path (binary tree)"
+  752  git push
+  818  man git
+  824  git log --oneline
+  828  git commit --amen
+  829  git commit --amend
+  831  git log --oneline
+  832  git commit --amend
+  833  git log --oneline
+  834  git pull
+  836  git config pull.ff only
+  838  git config pull.rebase true
+  840  git pull
+  841  git status
+  843  git push
+  844  git pull
+  845  git rebase
+  846  git pull
+  847  git status
+  848  git log --oneline
+  849  git push
+  892  git log --oneline
+  895  git log --oneline
+ 1020  git status
+ 1021  git add day7/cloningLinkedLIst.cpp 
+ 1108  git log --oneline
+ 1109  git add 1arrays/m_n_bonachi.cpp 
+ 1110  git commit -m "print m n-bonachi series"
+ 1111  git push
+ 1112  git add 1arrays/5count_distinct_elements_in_everywindow.cpp 
+ 1115  git commit -m "count distict elements in each window of size k [window sliding]"
+ 1116  git push
+ 1117  git add 1arrays/6findmax_appearing_element_in_a_range.cpp 
+ 1118  git commit -m "find max appearing element in the range [prefix sum]"
+ 1119  git push
+ 1120  git log --oneline
+ 1121  git add 1arrays/7check_if_array_can_be_divided_into_3_equal_parts.cpp 
+ 1122  git commit -m "check if an array can be divided into 3 equal parts [prefix sum]"
+ 1123  git push
+ 1130  git add 1arrays/8subarray_with_0_sum.cpp 
+ 1131  git commit -m "check if an array contains subarray with sum 0 [prefix sum]"
+ 1132  git push
+ 1133  git commit --amend
+ 1134  git push
+ 1135  git pull
+ 1136  git stash
+ 1137  git pull
+ 1138  git merge --no-ff
+ 1139  git pull
+ 1140  git push
+ 1141  git stash apply
+ 1142  git add 1arrays/5count_distinct_elements_in_everywindow.cpp 
+ 1143  git commit -m "count distinct elements in every window [prefix sum]"
+ 1144  git push
+ 1164  gcl git@github.com:ejmastnak/ejmastnak.com.git
+ 1182  git log --oneline
+ 1191  mkdir git
+ 1192  cd git
+ 1198  git init -u
+ 1199  git init -y
+ 1200  git init
+ 1203  git log --oneline
+ 1204  git status
+ 1207  git status
+ 1208  git add .
+ 1209  git commit -m "initial commit"
+ 1228  cd git
+ 1230  v git.plugin.zsh
+ 1235  v .gitconfig
+ 1242  git status
+ 1309  git clone git@github.com:sourab-jadav/commandsFuzzyFinder.git
+ 1313  git add .
+ 1319  git pull
+ 1321  git pul
+ 1322  git pull
+ 1465  git status
+ 1468  git status
+ 1469  git push
+ 1471  git log --oneline
+ 1472  git push
+ 1534  fzf_git_repos
+ 1538  log_git_repo
+ 1554  v .git_repos_visited
+ 1665  cd git
+ 1740  git status
+ 1741  git add .
+ 1742  git status
+ 1744  git push
+ 1745  git commit --amend
+ 1746  git push
+ 1747  git pull
+ 1748  git stash
+ 1749  git pull
+ 1750  git merge --no-ff
+ 1751  git pull
+ 1752  git push
+ 1753  git status
+ 1754  git commit --amend
+ 1755  git pull
+ 1756  git status
+ 1757  git stash
+ 1758  git pull
+ 1759  git merge --no-ff
+ 1760  git pull
+ 1761  git stash apply
+ 1762  git commit --amend
+ 1763  git push
+ 1764  git log --oneline
+ 1766  git log --oneline
+ 1772  git checkout -b "prompt"
+ 1786  git checkout main
+ 1787  git status
+ 1788  git diff
+ 1792  git push
+ 1807  git commit --amend
+ 1875  git status
+ 1876  git add .
+ 1878  git push
+ 1916  git add burnbinary/count_inversion.cpp 
+ 1918  git push
+ 1936  git status
+ 1937  git add .
+ 1939  git push
+ 1940  git pull
+ 1941  git config pull.ff only
+ 1942  git pull
+ 1943  git config pull.rebase trure
+ 1944  git config pull.rebase true
+ 1945  git pull
+ 1946  git merge --no-ff
+ 1948  git merge --no-ff
+ 1949  git status
+ 1951  git merge --no-ff
+ 1952  git push
+ 1969  git branch -a
+ 1972  git checkout -b "without promp"
+ 1973  git checkout -b "without_prompt"
+ 2007  git status
+ 2009  git push
+ 2010  git checkout main
+ 2013  git merge without_prompt
+ 2014  git status
+ 2015  git push
+ 2057  git add 1arrays/10Intersection.cpp 
+ 2180  git status
+ 2181  git log --oneline
+ 2273  gcl git@github.com:qbittorrent/qBittorrent.git
+ 2287  git status
+ 2288  git add .
+ 2293  git status
+ 2294  git add .
+ 2296  git status
+ 2299  git add .
+ 2429  git status
+ 2430  git diff
+ 2432  git status
+ 2433  git diff
+ 2507  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+ 2531  git status
+ 2540  git status
+ 2541  git diff
+ 2652  git diff
+ 2654  git diff
+ 2655  git add .
+ 2656  git diff
+ 2657  git status
+ 2658  git add .
+ 2659  git diff
+ 2660  git status
+ 2680  git add .
+ 2685  git add .
+ 2687  git status
+ 2744  git status
+ 2745  git add 2strings/5RomanToInt.cpp 
+ 2754  git diff lua/sourab/remap.lua 
+ 2755  git status
+ 2761  git status
+ 2762  git add 2strings/ValidIpAddress.cpp 
+ 2765  git status
+ 2888  git status
+ 2889  git add .
+ 2910  git status
+ 2912  git push --verbose
+ 2939  sudo pacman -S github-cli
+ 2941  gh extension install github/gh-copilot\n
+ 2947  git clone https://github.com/github/copilot.vim.git \\n  ~/.config/nvim/pack/github/start/copilot.vim
+ 3051  gh copilot explain "how to use ghcs alias or -s in github cli"
+ 3151  git status
+ 3152  git add .
+ 3191  git status
+ 3194  git status
+ 3206  git status
+ 3207  git diff
+ 3208  git add .
+ 3213  git status
+ 3214  git add .
+ 3226  git status
+ 3227  git add .
+ 3256  git add .
+ 3272  v git-clone.sh
+ 3273  echo "https://github.com/github/gitignore" | cut -d '/' -f 1,2
+ 3274  echo "https://github.com/github/gitignore" | sed 's|https://github.com/||'
+ 3275  echo "https://github.com/github/gitignore" | sed 's|https://github.com/||' | cut -d '/' -f 1,2
+ 3276  echo "https://github.com/github/gitignore" | sed 's|https://github.com/||' | cut -d '/' -f 2
+ 3277  echo "https://github.com/github/gitignore" | sed 's|https://github.com/||' | cut -d '/' -f 1
+ 3278  echo "https://github.com/github/gitignore" | sed 's|https://github.com/||' | cut -d '/' -f 1 2
+ 3279  echo "https://github.com/github/gitignore" | sed 's|https://github.com/||' | cut -d '/' -f 1,2
+ 3282  v git-clone.sh
+ 3284  ./git-clone.sh --depth 1 \\nhttps://github.com/nix-community/nixpkgs
+ 3286  ./git-clone.sh --depth 1 \\nhttps://github.com/nix-community/nixpkgs
+ 3288  ./git-clone.sh --depth 1 \\nhttps://github.com/nix-community/nixpkgs
+ 3377  git status
+ 3387  git status
+ 3389  git add .
+ 3391  git log --follow -- day9/sudukosolver.cpp 
+ 3392  git log --follow --pretty=format:"%h - %an, %ar : %s" -- day9/sudukosolver.cpp 
+ 3543  git status
+ 3544  git diff
+ 3545  git status
+ 3547  git status
+ 3561  git status
+ 3568  git status
+ 3569  git add .
+ 3571  git status
+ 3576  git status
+ 3582  git clone git@github.com:smilegupta/HappyBirthdayTanayPratap.git
+ 3596  rm -rf .git
+ 3599  git remote add origin git@github.com:sourab-jadav/birthday-wishes.git
+ 3600  git init
+ 3601  git remote add origin git@github.com:sourab-jadav/birthday-wishes.git
+ 3602  git status
+ 3603  git add .
+ 3605  git push --set-upstream origin main
+ 3612  git status
+ 3629  git add binaryTree/printAllTheSumPaths.cpp 
+ 3630  git status
+ 3632  git status
+ 3634  git checkout main
+ 3635  git checkout HEAD
+ 3636  git reset HEAD
+ 3637  git reset --hard HEAD
+ 3638  git status
+ 3639  git restore binaryTree/printAllTheSumPaths.cpp 
+ 3640  git status
+ 3641  git restore binaryTree/printAllTheSumPaths.cpp 
+ 3642  git status
+ 3643  git restof
+ 3644  git restore binaryTree/printAllTheSumPaths.cpp 
+ 3645  git log --follow --pretty=format:"%h - %an, %ar : %s" -- day9/sudukosolver.cpp 
+ 3646  git log --follow --pretty=format:"%h - %an, %ar : %s" -- binaryTree/printAllTheSumPaths.cpp 
+ 3648  git log --follow --pretty=format:"%h - %an, %ar : %s" -- binaryTree/printAllTheSumPaths.cpp 
+ 3650  git status
+ 3651  git add binaryTree/maxSumOfNonAdjNodes.cpp 
+ 3671  yay -S pcmanfm-qt-git
+ 3675  git status
+ 3676  git add .
+ 3678  git status
+ 3679  git diff
+ 3684  git status
+ 3685  git diff
+ 3686  git status
+ 3688  git status
+ 3694  git statu
+ 3695  git status
+ 3699  git status
+ 3701  git status
+ 3702  git add .
+ 3704  git status
+ 3705  git diff
+ 3707  git status
+ 3718  git status
+ 3720  git status
+ 3805  git status
+ 3851  git init -y
+ 3852  git init
+ 3856  git status
+ 3857  git add server.py client.py
+ 3861  git commit --amend
+ 3895  git status
+ 3896  git log
+ 3919  git status
+ 3936  git log
+ 3937  git restore server.py
+ 3942  git diff
+ 3943  git status
+ 3966  git diff
+ 3996  ghe what is the difference between git reflog and git log
+ 3998  git log --follow --pretty=format:"%h - %an, %ar : %s" -- binaryTree/printAllTheSumPaths.cpp 
+ 3999  git log --oneline
+ 4000  git reflog
+ 4001  ghe give me a git command that displays detailed history of the repository in graph view and beautify it with colors and explain where the importance of git log and git reflog is there in this situation
+ 4003  git stash show -p
+ 4004  git stash show
+ 4005  ghe what are patches in github
+ 4043  git status
+ 4049  git status
+ 4050  git add .
+ 4052  git status
+ 4056  git log --follow after/plugin/colors.lua 
+ 4057  ghe git log --follow only displays commits i want to also see the changes
+ 4058  ghe "git log --follow only displays commits i want to also see the changes"
+ 4059  git log --follow -p after/plugin/colors.lua 
+ 4060  ghs "useful git commands in combination with their flags"
+ 4061  ghs "git log real life usecases using it with options"
+ 4062  ghe "git log real life usecases using it with options"
+ 4063  git log --help
+ 4070  ghe improve my git knowledge
+ 4075  ghe git command to see all the patches that got updated within last 5 days
+ 4076  git log --since="5 days ago" --patch
+ 4077  ghe handy options with git log
+ 4079  ghe i want to see patches of a file using fugitive.nvim
+ 4080  ghe i want to see commit history of a specific file using fugitive.nvim
+ 4081  ghe fugitive.nvim shortcuts
+ 4139  git log --follow -p .gitignore
+ 4157  git clone git clone https://github.com/zaidoon1/shopping-cart.git
+ 4158  gcl git clone https://github.com/zaidoon1/shopping-cart.git
+ 4159  git clone https://github.com/zaidoon1/shopping-cart.git
+ 4259  gcl git@github.com:Manishak798/CRUD-App.git
+ 4262  git log --oneline -p
+ 4369  git log --oneline -p
+ 4402  git init
+ 4404  git add .
+ 4412  git restore lfrc
+ 4413  git status
+ 4430  git status
+ 4447  git restore lfrc
+ 4448  git status
+ 4449  git restore lfrc
+ 4450  git status
+ 4451  git checkout HEAD~1
+ 4546  git log
+ 4557  git status
+ 4558  git add .
+ 4560  git status
+ 4563  git log --oneline --follow -p after/plugin/colors.lua 
+ 4564  git checkout fac728c
+ 4565  git status
+ 4566  git diff
+ 4568  git checkout fac728c
+ 4569  git checkout head
+ 4570  git checkout HEAD
+ 4571  git checkout main
+ 4572  git diff
+ 4573  git status
+ 4597  git add .
+ 4599  git satatus
+ 4600  git add binary_search/eco.cpp 
+ 4627  git status
+ 4628  git add .
+ 4633  git log --oneline -p
+ 4654  git add binaryTree/binary_search_tree/BST_insert.cpp 
+ 4656  git status
+ 4657  git add .
+ 4664  git diff binaryTree/binary_search_tree/normal_bst_to_balanced.cpp 
+ 4665  git status
+ 4666  git diff binaryTree/binary_search_tree/BST_insert.cpp 
+ 4667  git add binaryTree/binary_search_tree/normal_bst_to_balanced.cpp 
+ 4669  git status
+ 4671  git status
+ 4674  git status
+ 4675  git diff
+ 4677  git status
+ 4679  git status
+ 4688  git add dynamic_programming/1minmax/prereq/coinChange.cpp 
+ 4689  git status
+ 4690  git diff binaryTree/binary_search_tree/normal_bst_to_balanced.cpp 
+ 4708  git clone git@github.com:lukefire5156/PPTs_TO_PDFs_AND_Merger.git
+ 4712  git diff
+ 4714  git diff
+ 4797  git status
+ 4798  git add dynamic_programming/1minmax/4coinchange.cpp 
+ 4846  git add dynamic_programming/1minmax/knapsack.cpp 
+ 4847  git status
+ 4848  git restore --staged dynamic_programming/1minmax/4coinchange.cpp 
+ 4849  git status
+ 4851  git diff dynamic_programming/1minmax/knapsack.cpp 
+ 4852  git status
+ 4853  git diff dynamic_programming/1minmax/knapsack.cpp 
+ 4854  git restore dynamic_programming/1minmax/knapsack.cpp 
+ 4855  git diff
+ 4856  git restore dynamic_programming/1minmax/knapsack.cpp 
+ 4857  git diff
+ 4858  git log --oneline -p
+ 4859  git status
+ 4861  git status
+ 4866  git status
+ 4867  git add dynamic_programming/binomialCoefficient.cpp 
+ 4869  git status
+ 4872  git restore dynamic_programming/binomialCoefficient.cpp 
+ 4873  git diff
+ 4882  git status
+ 4883  git add dynamic_programming/catalanNumber.cpp 
+ 4886  git status
+ 4887  git add .
+ 4918  git status
+ 4919  git add dynamic_programming/matrixChainMultiplication.cpp 
+ 4921  git status
+ 4924  git log --oneline
+ 4938  git add dynamic_programming/partitionEqualSum.cpp 
+ 4939  git status
+ 4940  git diff
+ 4941  ghe "in git show the diff along with line numbers"
+ 4942  git diff -U
+ 4944  ghs "git diff along with line numbers"
+ 4945  git diff -u 
+ 4946  git diff
+ 4947  git status
+ 4948  git diff
+ 4949  git add .
+ 4950  git status
+ 4953  git status
+ 5027  yay -S universal-ctags-git\n
+ 5077  git add dynamic_programming/goldmine.cpp 
+ 5081  git diff HEAD
+ 5082  git diff HEAD HEAD~
+ 5083  git diff HEAD~ HEAD
+ 5090  git status
+ 5092  git log --oneline
+ 5093  ghe "git command to do git log and see what files changed in each commit"
+ 5094  git log --name-only
+ 5095  git log --name-only --oneline
+ 5096  git log --name-only --oneline -p
+ 5097  git log --name-only --oneline 
+ 5098  git status
+ 5104  git status
+ 5105  git add dynamic_programming/assemblylinescheduling.cpp 
+ 5112  git add dynamic_programming/LongestIncreasingSubsequence.cpp 
+ 5114  git status 
+ 5126  git status
+ 5128  git add dynamic_programming/lcs_three_strings.cpp 
+ 5132  git add dynamic_programming/countSubseqLessThanK.cpp 
+ 5143  git status
+ 5150  git status
+ 5151  git add dynamic_programming/countSubseqLessThanK.cpp 
+ 5152  git status
+ 5154  git pull
+ 5155  git rebase
+ 5156  git pull
+ 5157  git status
+ 5158  git log --oneline
+ 5190  gcl git@github.com:bhbr/snapper.git
+ 5207  git log --oneline
+ 5214  git diff
+ 5215  git status
+ 5216  git diff HEAD~ HEAD
+ 5217  git add dynamic_programming/1minmax/eggDropping.cpp 
+ 5222  git log --oneline
+ 5236  gcl git@github.com:nickatomlin/Signaling.git
+ 5302  git status
+ 5304  git add dynamic_programming/1minmax/maxLengthChainOfPairs.cpp 
+ 5305  git status
+ 5307  git add dynamic_programming/1minmax/all1ssquaresubmatrix.cpp 
+ 5319  git status
+ 5320  git add dynamic_programming/1minmax/max_diff_of0sand1s.cpp 
+ 5322  git status
+ 5326  git restore dynamic_programming/1minmax/max_diff_of0sand1s.cpp 
+ 5327  git add dynamic_programming/min_removals_to_make_max_sub_minlessor_equalk.cpp 
+ 5340  git add dynamic_programming/min_removals_to_make_max_sub_minlessor_equalk.cpp 
+ 5365  find . -type -b .git 
+ 5377  git clone https://github.com/terroo/flappybird\n
+ 5408  git status
+ 5409  git add 2strings/wordbreak/main.cpp 
+ 5411  git status
+ 5443  git status
+ 5444  git diff
+ 5446  git status
+ 5447  git add dynamic_programming/trees 
+ 5448  git status
+ 5450  git status
+ 5451  git diff dynamic_programming/partitionEqualSum.cpp 
+ 5452  git restore dynamic_programming/partitionEqualSum.cpp 
+ 5453  git diff dynamic_programming/partitionEqualSum.cpp 
+ 5454  git status
+ 5456  git add dynamic_programming/longest_palindromic_subsequence.cpp 
+ 5462  git status
+ 5464  git add dynamic_programming/unboundedknapsack.cpp 
+ 5466  git status
+ 5476  git status
+ 5477  git diff
+ 5478  git add dynamic_programming/countAllPalindromicSubseq.cpp 
+ 5500  git status
+ 5501  git add 2strings/63longestpalindrom/longestpalindromicsubstring.cpp 
+ 5508  git status
+ 5509  git add after/plugin/fold.lua 
+ 5511  git status
+ 5513  git show --p
+ 5514  git show HEAD -p
+ 5515  git status
+ 5517  git status
+ 5518  git add dynamic_programming/longestAlternatingSubsequence.cpp 
+ 5520  git restore head
+ 5521  git restore HEAD
+ 5522  git restore main
+ 5523  git restore dynamic_programming/longestAlternatingSubsequence.cpp 
+ 5529  git status
+ 5533  git status
+ 5539  git status
+ 5569  git clone git@autocode.git.epam.com:sourabhjadav7/line-intersection-exercise.git
+ 5577  git status
+ 5592  git status
+ 5597  git clone git@autocode.git.epam.com:sourabhjadav7/segments-exercise.git
+ 5611  gcl git@autocode.git.epam.com:sourabhjadav7/triangle-exercise.git
+ 5617  gcl git@autocode.git.epam.com:sourabhjadav7/decrementing-carousel-exercise.git
+ 5644  git status
+ 5676  git init 
+ 5678  git status
+ 5679  git add .
+ 5681  ghs "search for .git folder recursively using find command and do rm -rf on them"
+ 5682  find . -type d -name ".git"
+ 5683  find . -type d -name ".git" -exec rm -rf {}\;
+ 5684  find . -type d -name ".git" -exec rm -rf {}+
+ 5685  find . -type d -name ".git" -exec rm -rf {} +
+ 5687  git init
+ 5688  git add .
+ 5690  git remote add origin git@github.com:sourab-jadav/epam.git
+ 5691  git branch -M main
+ 5692  git push -u origin main
+ 5693  git status
+ 5694  git pull
+ 5695  git status
+ 5699  ghe "searching for files that are recently created in the last 24 hours using find command and exclude the .git directory for searching"
+ 5700  find . -type f -not -path '*/.git/*' -mtime -1
+ 5701  find . -type f -not -path '*/.git/*' -mtime -.5
+ 5702  find . -type f -not -path '*/.git/*' -ctime -.5
+ 5703  find . -type f -not -path '*/.git/*' -ctime -1
+ 5704  find . -type f -not -path '*/.git/*' -ctime -1 | count -n
+ 5714  git status
+ 5725  gcl git@autocode.git.epam.com:sourabhjadav7/halving-carousel-exercise.git
+ 5732  git status
+ 5735  gcl git@autocode.git.epam.com:sourabhjadav7/gradually-decreasing-carousel-exercise.git
+ 5762  git status
+ 5765  git log --oneline
+ 5766  git cherry-pick e7565d0
+ 5767  git status
+ 5768  git cherry-pick --abort
+ 5769  ghe "i want to apply the changes introduced by existing commit and i don't want to resolve merge conflicts i only want the changes of the existing commit and remove rest of the changes using git "
+ 5770  ghe "git reset and git reset --hard"
+ 5771  git reset --hard e7565d0
+ 5772  git status
+ 5773  git log --oneline
+ 5774  git status
+ 5775  git log --oneline
+ 5776  ghe "does git reset --hard removes all commits made so far"
+ 5777  git reflog
+ 5778  ghe "how to recover commits using git reflog"
+ 5779  git branch temp e7565d0
+ 5780  git checkout temp
+ 5781  git checkout master
+ 5782  git reflog
+ 5784  git branch -d temp
+ 5785  git reflog
+ 5786  git branch temp 636e35a
+ 5787  git checkout temp
+ 5790  git status
+ 5793  git status
+ 5794  git diff
+ 5796  git commit --amend
+ 5798  git diff
+ 5799  git status
+ 5801  git status
+ 5809  gcl git@autocode.git.epam.com:sourabhjadav7/decrementing-carousel-with-limit-exercise.git
+ 5815  git status
+ 5820  git diff HEAD~ HEAD
+ 5821  git show HEAD~2 -p
+ 5824  git status
+ 5825  git diff
+ 5827  git log --oneline
+ 5828  git diff
+ 5832  gcl git@autocode.git.epam.com:sourabhjadav7/sprint-planning-exercise.git
+ 5835  git status
+ 5837  gcl git@autocode.git.epam.com:sourabhjadav7/sprint-planning-exercise.git
+ 5848  git diff
+ 5857  git status
+ 5878  git diff
+ 5886  git diff
+ 5905  git status
+ 5906  git diff lua/sourab/remap.lua 
+ 5952  v .gitignore
+ 5953  git status
+ 5954  git add .
+ 5955  git submodule add https://autocode.git.epam.com/sourabhjadav7/decrementing-carousel-with-limit-exercise decrementing-carousel-with-limit-exercise
+ 5956  git rm --cached decrementing-carousel-with-limit-exercise
+ 5963  git add .
+ 5964  git status
+ 5965  git reset
+ 5966  git status
+ 5969  git status
+ 5973  gcl git@autocode.git.epam.com:sourabhjadav7/decrementing-carousel-with-limit-exercise.git
+ 5975  git submodule add https://autocode.git.epam.com/sourabhjadav7/decrementing-carousel-with-limit-exercise .
+ 5976  git submodule add https://autocode.git.epam.com/sourabhjadav7/decrementing-carousel-with-limit-exercise decrementing-carousel-with-limit-exercise
+ 5977  git submodule add git@autocode.git.epam.com:sourabhjadav7/decrementing-carousel-with-limit-exercise.git decrementing-carousel-with-limit-exercise
+ 5981  git status
+ 5984  git submodule update --init\n
+ 5991  cd git
+ 5993  gcl git@github.com:sourab-jadav/epam.git
+ 5994  git status
+ 6000  git status
+ 6006  find . -mindepth 1 -type d -name ".git" 
+ 6008  git status
+ 6016  find . -mindepth 1 -type d -name ".git" 
+ 6017  find . -mindepth 2 -type d -name ".git" 
+ 6019  git pull
+ 6034  find . -mindepth 2 -type d -name ".git" 
+ 6035  git status
+ 6036  rm -rf .gitmodules
+ 6038  git status
+ 6039  find . -mindepth 2 -type d -name ".git" 
+ 6043  git status
+ 6044  git origin ls
+ 6045  rm -rf .git .gitignore
+ 6047  git status
+ 6049  git checkout b46e87c2cbcf554968fc4b31416d1691ffaea265
+ 6050  git status
+ 6051  git checkout main
+ 6053  git status
+ 6061  git status
+ 6068  git status
+ 6073  git status
+ 6074  rm -rf .gitignore
+ 6076  git status
+ 6077  find . -mindepth 2 -type d -name ".git" 
+ 6078  find . -mindepth 2 -type d -name ".git" -exec rm -rf {} +
+ 6079  find . -mindepth 2 -type d -name ".git" 
+ 6080  git status
+ 6081  git add .
+ 6082  git status
+ 6086  git status
+ 6088  rm -rf .gitmodules
+ 6090  git status
+ 6091  git commit --amend 
+ 6092  git status
+ 6093  git add .
+ 6095  git pull
+ 6096  git config pull.rebase true
+ 6097  git pull
+ 6098  git status
+ 6101  git status
+ 6102  git add .
+ 6103  gcl git@autocode.git.epam.com:sourabhjadav7/decrementing-carousel-with-limit-exercise.git
+ 6104  find . -mindepth 2 -type d -name ".git" 
+ 6105  find . -mindepth 2 -type d -name ".git" -exec rm -rf {} +
+ 6107  find . -mindepth 2 -type d -name ".git" 
+ 6110  git status
+ 6111  git add .
+ 6123  cd git
+ 6184  gcl git@autocode.git.epam.com:sourabhjadav7/task-carousel-exercise.git
+ 6193  git restore master
+ 6194  git status
+ 6195  git restore head
+ 6196  git restore .
+ 6199  git restore .
+ 6205  git restore .
+ 6207  git restore .
+ 6217  git status
+ 6220  git status
+ 6223  gcl git@github.com:varnishcache/varnish-cache.git
+ 6309  git status
+ 6350  git status
+ 6351  git add .
+ 6360  rm -rf .git
+ 6361  git add .
+ 6366  git status
+ 6376  git add .
+ 6378  rm -rf .gitignore
+ 6382  git add .
+ 6396  git add .
+ 6399  find . -mindepth 2 -type d -name ".git" 
+ 6400  git add .
+ 6422  gcl git@autocode.git.epam.com:sourabhjadav7/task-carousel-exercise.git
+ 6424  find . -mindepth 2 -type d -name ".git" 
+ 6425  find . -mindepth 2 -type d -name ".git" -exec rm -rf {} +
+ 6432  git add. 
+ 6433  git add .
+ 6456  git status
+ 6472  gcl git@autocode.git.epam.com:sourabhjadav7/task-carousel-exercise.git
+ 6489  find . -mindepth 2 -type d -name ".git" -exec rm -rf {} +
+ 6494  git add .
+ 6514  gcl git@github.com:danielchasehooper/ShapeUp-public.git
+ 6554  gcl git@github.com:bingmann/sound-of-sorting.git
+ 6607  git status
+ 6608  git add dynamic_programming/weightedJobScheduling.cpp 
+ 6619  git status
+ 6620  git diff
+ 6622  git status
+ 6624  git status
+ 6626  git restore .
+ 6627  git log --oneline
+ 6647  git status
+ 6648  git add coin_game_winner_3_coins.cpp 
+ 6650  git status
+ 6652  git status
+ 6654  git status
+ 6672  git status
+ 6674  git status
+ 6675  git restore .
+ 6677  git status
+ 6678  git diff
+ 6679  git status
+ 6680  git diff
+ 6682  git restore .
+ 6683  git status
+ 6684  git restore .
+ 6689  git status
+ 6709  git status
+ 6711  git add dynamic_programming/countDerangements.cpp 
+ 6713  git status
+ 6714  git diff
+ 6717  git log --oneline
+ 6719  git restore .
+ 6723  git log --oneline
+ 6724  git statu
+ 6725  git status
+ 6729  find . -type f -not -path '*/.git/*' -ctime -1 | count -n
+ 6730  find . -type f -not -path '.git/*'  | count -n
+ 6731  find . -type f -not -path '*/.git/*'  | count -n
+ 6732  git log
+ 6733  git log --oneline
+ 6736  git status
+ 6737  git diff
+ 6783  git diff
+ 6784  git log --oneline
+ 6785  git checkout HEAD~1
+ 6786  git restore .
+ 6787  git status
+ 6788  git diff
+ 6790  git log --oneline
+ 6791  git checkout HEAD~1
+ 6792  git show HEAD
+ 6793  git checkout main
+ 6794  git reflog
+ 6795  git status
+ 6797  git log --oneline
+ 6802  git status
+ 6803  git add dynamic_programming/maxSumIncreasingSubseq.cpp 
+ 6806  git status
+ 6808  git status
+ 6809  git add dynamic_programming/optimal_strategy_for_game.cpp 
+ 6810  git commit --amend 
+ 6811  git diff
+ 6813  git status
+ 6814  git diff
+ 6815  git commit --amend 
+ 6816  git stats
+ 6817  git commit --amend 
+ 6818  git status
+ 6820  git restore .
+ 6821  git stats
+ 6822  git status
+ 6824  git status
+ 6825  git pull
+ 6826  git rebase
+ 6827  git pull
+ 6828  git status
+ 6833  git status
+ 6835  git diff 
+ 6836  git diff HEAD
+ 6837  git diff HEAD~
+ 6853  git status
+ 6854  git diff
+ 6857  git status
+ 6858  git diff
+ 6859  git dif
+ 6860  git diff
+ 6865  git status
+ 6875  git status
+ 6877  git diff HEAD~
+ 6881  git status
+ 6882  git add dynamic_programming/optimal_binary_search_tree.cpp 
+ 6888  git status
+ 6889  git diff HEAD~
+ 6904  git status
+ 6909  git status
+ 6935  git status
+ 6947  git status
+ 6948  git diff
+ 6956  git status
+ 6963  git status
+ 6964  git diff
+ 6966  git status
+ 6968  git status
+ 6969  git diff
+ 7027  git status
+ 7028  git diff
+ 7098  git status
+ 7128  git status
+ 7129  git diff
+ 7131  git status
+ 7132  git diff
+ 7133  git add interview/rate_limiter.cpp 
+ 7134  git diff
+ 7135  git status
+ 7137  git status
+ 7142  git status
+ 7143  git add interview/break_the_bricks.cpp 
+ 7145  git status
+ 7146  git diff
+ 7148  git diff
+ 7173  git init 
+ 7180  git add .
+ 7184  git log --oneline
+ 7185  git status
+ 7189  git diff
+ 7197  git diff
+ 7200  git diff
+ 7202  git diff
+ 7221  git status
+ 7223  git remote add origin git@github.com:sourab-jadav/accecture_practise_stuff.git\ngit branch -M main\ngit push -u origin main
+ 7313  git init
+ 7315  git remote add origin git@github.com:sourab-jadav/wallpapers.git\ngit branch -M main\ngit push -u origin main
+ 7316  git add .
+ 7317  git status
+ 7320  git remote ls
+ 7321  git remote show
+ 7322  git push -u origin main
+ 7325  git status
+ 7326  rm -rf .git
+ 7329  git init
+ 7330  git add developers/
+ 7331  git status
+ 7334  git push -u origin main
+ 7335  git remote add origin git@github.com:sourab-jadav/wallpapers.git\ngit branch -M main\ngit push -u origin main
+ 7346  git add 1arrays/addingnumbers/expandingNumbers.cpp 
+ 7350  git status
+ 7379  cat .gitignore
+ 7390  git status
+ 7391  git diff
+ 7392  git add 2datatypes/electronic-watch-exercise/src/main/java/com/epam/rd/autotasks/meetautocode/ElectronicWatch.java 
+ 7394  git reset --soft HEAD~1
+ 7395  git status
+ 7396  git reset --mixed HEAD~1\n
+ 7397  git status
+ 7407  git add 2datatypes/electronic-watch-exercise/src/main/java/com/epam/rd/autotasks/meetautocode/ElectronicWatch.java 
+ 7408  git commit -m "playing with numbers"
+ 7410  git pull
+ 7411  git status
+ 7413  git status
+ 7414  git pull
+ 7416  git pull
+ 7458  cd git
+ 7560  git status
+ 7562  git log --oneline
+ 7573  history | grep -e "git"
+ 7574  history | grep -e "git"| uniq
+ 7614  git status
+ 7615  git log --oneline
+ 7631  git status
+ 7632  git add backtracking/minStepsToReachTargetByKnight.cpp 
+ 7633  git status
+ 7637  git status
+ 7639  git diff HEAD~
+ 7649  git status
+ 7650  git add dynamic_programming/lcs.cpp 
+ 7653  git status
+ 7654  git add graphs/topological_sorting_in_graph.cpp 
+ 7677  git status
+ 7855  git status
+ 7972  git status
+ 8127  git log --online
+ 8128  git log --oneline
+ 8131  git status
+ 8132  git checkout main
+ 8133  git status
+ 8255  v git-clone.sh
+ 8262  cd git
+ 8580  git status
+ 8581  git diff
