@@ -171,7 +171,7 @@ using namespace std;
 //                     int x=i+t.first;
 //                     int y=j+t.second;
 //                     if (x>=0 && x<4 && y>=0 && y<3) {
-//                         keypad[k][i][j]+=keypad[k-1][x][y];//here you only need the last keypad value hence we can opitimize it further
+//                         keypad[k][i][j]+=keypad[k-1][x][y];//here you only need the last keypad value hence? we can opitimize it further
 //                     }
 //                 }
 //             }
