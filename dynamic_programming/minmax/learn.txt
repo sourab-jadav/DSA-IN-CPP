@@ -1,0 +1,15 @@
+finding max product subarray
+2,3,-2,4
+
+how can maximum be formed 
+result=INT_MIN
+
+maintaining the current maximum
+maintaining the current minimum
+
+current maximum=max(current_maximum,arr[i]*current_maximum)
+current minimum=min(current_minimum,arr[i]*current_minimum)
+
+value=max(current_maximum*arr[i],current_minimum*arr[i])
+result=max(result,value)
+
